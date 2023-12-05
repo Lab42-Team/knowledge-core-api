@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('knowledge_core', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('description');
-            $table->string('phone');
-            $table->string('email')->unique();
-            $table->string('address');
-            $table->text('references')->unique();
-            $table->text('lab_link')->unique();
-            $table->text('github_link')->unique();
+            $table->text('description')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable()->unique();
+            $table->string('address')->nullable();
+            $table->text('references')->nullable()->unique();
+            $table->text('lab_link')->nullable()->unique();
+            $table->text('github_link')->nullable()->unique();
         });
     }
 

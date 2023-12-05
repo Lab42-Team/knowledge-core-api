@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('project_user', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('project_id')->unsigned()->nullable();
+            $table->integer('project_id')->unsigned();
             $table->foreign('project_id')
                 ->references('id')
                 ->on('project')
                 ->onDelete('cascade');
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')

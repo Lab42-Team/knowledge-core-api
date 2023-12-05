@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('project', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name')->nullable();
-            $table->text('description');
-            $table->smallInteger('type')->nullable()->default(0);
-            $table->smallInteger('status')->nullable()->default(0);
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->smallInteger('type')->default(0);
+            $table->smallInteger('status')->default(0);
         });
     }
 
