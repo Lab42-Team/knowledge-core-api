@@ -7,7 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 
-
+/**
+ * App\Models\News
+ *
+ * @property int $id
+ * @property string $name
+ * @property string|null $description
+ * @property int $status
+ * @property string $date
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @method static Builder|News newModelQuery()
+ * @method static Builder|News newQuery()
+ * @method static Builder|News query()
+ * @method static Builder|News whereCreatedAt($value)
+ * @method static Builder|News whereUpdatedAt($value)
+ * @method static Builder|News whereId($value)
+ * @method static Builder|News whereName($value)
+ * @method static Builder|News whereDescription($value)
+ * @method static Builder|News whereStatus($value)
+ * @method static Builder|News whereDate($value)
+ * @mixin Builder
+ */
 class News extends Model
 {
     use HasFactory;
