@@ -14,7 +14,7 @@ use Illuminate\Support\Carbon;
  * @property string $name
  * @property string|null $description
  * @property int $status
- * @property string $date
+ * @property Carbon|null $date
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @method static Builder|News newModelQuery()

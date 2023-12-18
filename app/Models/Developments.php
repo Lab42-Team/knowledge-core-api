@@ -13,7 +13,7 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property string $name
  * @property string|null $description
- * @property string|null $year
+ * @property Carbon|null $year
  * @property string|null $authors
  * @property string|null $publications
  * @property string|null $requirements
