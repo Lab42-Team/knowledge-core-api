@@ -27,37 +27,37 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{ route('admin.knowledge-core.update', $knowledge_core->id) }}" method="POST" class="col-4">
+                        <form action="{{ route('admin.knowledge-core.update', $knowledgeCore->id) }}" method="POST" class="col-4">
                             @csrf
                             @method('PATCH')
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea name="description" class="form-control" id="description">{{ $knowledge_core->description }}</textarea>
+                                <textarea name="description" class="form-control" id="description">{{ $knowledgeCore->description }}</textarea>
                             </div>
                             <div class="form-group" >
                                 <label for="phone">Phone</label>
-                                <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter phone" value="{{ $knowledge_core->phone }}">
+                                <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter phone" value="{{ $knowledgeCore->phone }}">
                             </div>
                             <div class="form-group" >
                                 <label for="email">Email</label>
-                                <input type="text" name="email" class="form-control" id="email" placeholder="Enter email" value="{{ $knowledge_core->email }}">
+                                <input type="text" name="email" class="form-control" id="email" placeholder="Enter email" value="{{ $knowledgeCore->email }}">
                             </div>
                             <div class="form-group" >
                                 <label for="address">Address</label>
-                                <input type="text" name="address" class="form-control" id="address" placeholder="Enter address" value="{{ $knowledge_core->address }}">
+                                <input type="text" name="address" class="form-control" id="address" placeholder="Enter address" value="{{ $knowledgeCore->address }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="references">References</label>
-                                <textarea name="references" class="form-control" id="references">{{ $knowledge_core->references }}</textarea>
+                                <textarea name="references" class="form-control" id="references">{{ $knowledgeCore->references }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="lab_link">Lab link</label>
-                                <textarea name="lab_link" class="form-control" id="lab_link">{{ $knowledge_core->lab_link }}</textarea>
+                                <textarea name="lab_link" class="form-control" id="lab_link">{{ $knowledgeCore->lab_link }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="github_link">Github link</label>
-                                <textarea name="github_link" class="form-control" id="github_link">{{ $knowledge_core->github_link }}</textarea>
+                                <textarea name="github_link" class="form-control" id="github_link">{{ $knowledgeCore->github_link }}</textarea>
                             </div>
 
                             <input type="submit" class="btn btn-primary" value="Обновить">

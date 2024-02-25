@@ -3,43 +3,71 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\KnowledgeCoreRequest;
+use App\Http\Requests\Admin\StoreKnowledgeCoreRequest;
+use App\Http\Requests\Admin\UpdateKnowledgeCoreRequest;
 use App\Models\KnowledgeCore;
 
 class KnowledgeCoreController extends Controller
 {
-    public function index() {
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
         $knowledge_cores = KnowledgeCore::all();
         return view('admin.knowledge-core.index', compact('knowledge_cores'));
     }
 
-
-    public function create() {
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
         return view('admin.knowledge-core.create');
     }
 
-    public function store(KnowledgeCoreRequest $request) {
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreKnowledgeCoreRequest $request)
+    {
         $data = $request->validated();
         KnowledgeCore::create($data);
         return redirect()->route('admin.knowledge-core.index');
     }
 
-    public function show(KnowledgeCore $knowledge_core){
-        return view('admin.knowledge-core.show', compact('knowledge_core'));
+    /**
+     * Display the specified resource.
+     */
+    public function show(KnowledgeCore $knowledgeCore)
+    {
+        return view('admin.knowledge-core.show', compact('knowledgeCore'));
     }
 
-    public function edit(KnowledgeCore $knowledge_core){
-        return view('admin.knowledge-core.edit', compact('knowledge_core'));
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(KnowledgeCore $knowledgeCore)
+    {
+        return view('admin.knowledge-core.edit', compact('knowledgeCore'));
     }
 
-    public function update(KnowledgeCoreRequest $request, KnowledgeCore $knowledge_core) {
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateKnowledgeCoreRequest $request, KnowledgeCore $knowledgeCore)
+    {
         $data = $request->validated();
-        $knowledge_core->update($data);
-        return redirect()->route('admin.knowledge-core.show', $knowledge_core->id);
+        $knowledgeCore->update($data);
+        return redirect()->route('admin.knowledge-core.show', $knowledgeCore->id);
     }
 
-    public function destroy(KnowledgeCore $knowledge_core) {
-        $knowledge_core->delete();
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(KnowledgeCore $knowledgeCore)
+    {
+        $knowledgeCore->delete();
         return redirect()->route('admin.knowledge-core.index');
     }
 }

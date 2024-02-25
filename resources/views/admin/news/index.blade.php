@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Ядро знаний</h1>
+                        <h1 class="m-0">Новости</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -27,7 +27,7 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-2 mb-3">
-                        <a href="{{ route('admin.knowledge-core.create') }}" class="btn btn-block btn-primary">Добавить</a>
+                        <a href="{{ route('admin.news.create') }}" class="btn btn-block btn-primary">Добавить</a>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -41,31 +41,25 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>name</th>
                                         <th>description</th>
-                                        <th>phone</th>
-                                        <th>email</th>
-                                        <th>address</th>
-                                        <th>references</th>
-                                        <th>lab_link</th>
-                                        <th>github_link</th>
+                                        <th>status</th>
+                                        <th>date</th>
                                         <th colspan="3">Действия</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($knowledge_cores as $knowledge_core)
+                                    @foreach($news as $news)
                                         <tr>
-                                            <td>{{ $knowledge_core->id }}</td>
-                                            <td>{{ $knowledge_core->description }}</td>
-                                            <td>{{ $knowledge_core->phone }}</td>
-                                            <td>{{ $knowledge_core->email }}</td>
-                                            <td>{{ $knowledge_core->address }}</td>
-                                            <td>{{ $knowledge_core->references }}</td>
-                                            <td>{{ $knowledge_core->lab_link }}</td>
-                                            <td>{{ $knowledge_core->github_link }}</td>
-                                            <td><a href="{{ route('admin.knowledge-core.show', $knowledge_core->id) }}"><i class="fa-solid fa-eye"></i></a></td>
-                                            <td><a href="{{ route('admin.knowledge-core.edit', $knowledge_core->id) }}"><i class="fa-solid fa-pen"></i></a></td>
+                                            <td>{{ $news->id }}</td>
+                                            <td>{{ $news->name }}</td>
+                                            <td>{{ $news->description }}</td>
+                                            <td>{{ $news->status }}</td>
+                                            <td>{{ $news->date }}</td>
+                                            <td><a href="{{ route('admin.news.show', $news->id) }}"><i class="fa-solid fa-eye"></i></a></td>
+                                            <td><a href="{{ route('admin.news.edit', $news->id) }}"><i class="fa-solid fa-pen"></i></a></td>
                                             <td>
-                                                <form action="{{ route('admin.knowledge-core.destroy', $knowledge_core->id) }}" method="POST">
+                                                <form action="{{ route('admin.news.destroy', $news->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="border-0 bg-transparent">

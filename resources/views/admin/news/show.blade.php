@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Ядро знаний: {{ $knowledgeCore->id }}</h1>
+                        <h1 class="m-0">Новость: {{ $news->id }}</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -27,13 +27,13 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-2 mb-3">
-                        <a href="{{ route('admin.knowledge-core.index') }}" class="btn btn-block btn-primary">Назад</a>
+                        <a href="{{ route('admin.news.index') }}" class="btn btn-block btn-primary">Назад</a>
                     </div>
                     <div class="col-2 mb-3">
-                        <a href="{{ route('admin.knowledge-core.edit', $knowledgeCore->id) }}" class="btn btn-block btn-success">Редактировать</a>
+                        <a href="{{ route('admin.news.edit', $news->id) }}" class="btn btn-block btn-success">Редактировать</a>
                     </div>
                     <div class="col-2 mb-3">
-                        <form action="{{ route('admin.knowledge-core.destroy', $knowledgeCore->id) }}" method="POST">
+                        <form action="{{ route('admin.news.destroy', $news->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input type="submit" value="Удалить" class="btn btn-danger col-12">
@@ -52,35 +52,23 @@
                                     <tbody>
                                         <tr>
                                             <td>ID</td>
-                                            <td>{{ $knowledgeCore->id }}</td>
+                                            <td>{{ $news->id }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>name</td>
+                                            <td>{{ $news->name }}</td>
                                         </tr>
                                         <tr>
                                             <td>description</td>
-                                            <td>{{ $knowledgeCore->description }}</td>
+                                            <td>{{ $news->description }}</td>
                                         </tr>
                                         <tr>
-                                            <td>phone</td>
-                                            <td>{{ $knowledgeCore->phone }}</td>
+                                            <td>status</td>
+                                            <td>{{ $news->status }}</td>
                                         </tr>
                                         <tr>
-                                            <td>email</td>
-                                            <td>{{ $knowledgeCore->email }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>address</td>
-                                            <td>{{ $knowledgeCore->address }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>references</td>
-                                            <td>{{ $knowledgeCore->references }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>lab_link</td>
-                                            <td>{{ $knowledgeCore->lab_link }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>github_link</td>
-                                            <td>{{ $knowledgeCore->github_link }}</td>
+                                            <td>date</td>
+                                            <td>{{ $news->date }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

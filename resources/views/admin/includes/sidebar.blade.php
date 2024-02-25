@@ -19,6 +19,13 @@
                             Knowledge core
                         </p>
                     </a>
+
+                    <a href="{{ route('admin.news.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            News
+                        </p>
+                    </a>
                 </li>
 
                 <!-- Add icons to the links using the .nav-icon class
