@@ -24,7 +24,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.create');
+        $statuses = News::getStatusArray();
+        return view('admin.news.create', compact('statuses'));
     }
 
     /**
@@ -51,7 +52,8 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        return view('admin.news.edit', compact('news'));
+        $statuses = News::getStatusArray();
+        return view('admin.news.edit', compact('news', 'statuses'));
     }
 
     /**

@@ -55,4 +55,22 @@ class News extends Model
         'status',
         'date',
     ];
+
+
+    public static function getStatusArray()
+    {
+        return [
+            self::PUBLISHED_STATUS => 'PUBLISHED_STATUS',
+            self::HIDDEN_STATUS => 'HIDDEN_STATUS',
+        ];
+    }
+
+    /**
+     * Получение названия типа состояния.
+     * @return mixed
+     */
+    public function getStatysName()
+    {
+        return ArrayHelper::getValue(self::getStatusArray(), $this->status);
+    }
 }

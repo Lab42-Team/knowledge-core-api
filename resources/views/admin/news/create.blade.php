@@ -40,9 +40,14 @@
                                     <div class="text-danger">Текст ошибки</div>
                                 @enderror
                             </div>
+
                             <div class="form-group" >
                                 <label for="status">Status</label>
-                                <input type="text" name="status" class="form-control" id="status" placeholder="Enter status">
+                                <select class="form-control" id="status">
+                                    @foreach($statuses as $status)
+                                        <option>{{ $status }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <input type="submit" class="btn btn-primary" value="Добавить">
