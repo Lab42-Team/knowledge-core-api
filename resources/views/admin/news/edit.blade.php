@@ -55,9 +55,12 @@ use App\Models\News;
                             <div class="form-group" >
                                 <label for="status">Status</label>
                                 <select class="form-control" name="status" id="status">
-                                    <!--<option selected>{ News::getStatusName($news->status) }}</option>-->
                                     @foreach($statuses as $key => $status)
-                                        <option value="{{ $key }}">{{ $status }}</option>
+                                        @if($status == News::getStatusName($news->status))
+                                            <option selected value="{{ $key }}">{{ $status }}</option>
+                                        @else
+                                            <option value="{{ $key }}">{{ $status }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>
