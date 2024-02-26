@@ -40,12 +40,16 @@
                                     <div class="text-danger">Текст ошибки</div>
                                 @enderror
                             </div>
+                            <!-- <div class="form-group" >
+                                <label for="status">Status</label>
+                                <input type="text" name="status" class="form-control" id="status" placeholder="Enter status" value="{ $news->status }}">
+                            </div>-->
 
                             <div class="form-group" >
                                 <label for="status">Status</label>
-                                <select class="form-control" id="status">
-                                    @foreach($statuses as $status)
-                                        <option>{{ $status }}</option>
+                                <select class="form-control" name="status" id="status">
+                                    @foreach($statuses as $key => $status)
+                                        <option value="{{ $key }}">{{ $status }}</option>
                                     @endforeach
                                 </select>
                             </div>

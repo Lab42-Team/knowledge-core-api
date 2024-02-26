@@ -1,3 +1,9 @@
+<?php
+
+use App\Models\News;
+
+?>
+
 @extends('admin.layouts.main')
 
 @section('content')
@@ -43,14 +49,15 @@
                             </div>
                             <!-- <div class="form-group" >
                                 <label for="status">Status</label>
-                                <input type="text" name="status" class="form-control" id="status" placeholder="Enter status" value="{{ $news->status }}">
+                                <input type="text" name="status" class="form-control" id="status" placeholder="Enter status" value="{ $news->status }}">
                             </div>-->
 
                             <div class="form-group" >
                                 <label for="status">Status</label>
-                                <select class="form-control" id="status">
-                                    @foreach($statuses as $status)
-                                        <option>{{ $status }}</option>
+                                <select class="form-control" name="status" id="status">
+                                    <!--<option selected>{ News::getStatusName($news->status) }}</option>-->
+                                    @foreach($statuses as $key => $status)
+                                        <option value="{{ $key }}">{{ $status }}</option>
                                     @endforeach
                                 </select>
                             </div>

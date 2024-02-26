@@ -1,3 +1,9 @@
+<?php
+
+use App\Models\News;
+
+?>
+
 @extends('admin.layouts.main')
 
 @section('content')
@@ -54,7 +60,7 @@
                                             <td>{{ $news->id }}</td>
                                             <td>{{ $news->name }}</td>
                                             <td>{{ $news->description }}</td>
-                                            <td>{{ $news->status }}</td>
+                                            <td>{{ News::getStatusName($news->status) }}</td>
                                             <td>{{ $news->date }}</td>
                                             <td><a href="{{ route('admin.news.show', $news->id) }}"><i class="fa-solid fa-eye"></i></a></td>
                                             <td><a href="{{ route('admin.news.edit', $news->id) }}"><i class="fa-solid fa-pen"></i></a></td>

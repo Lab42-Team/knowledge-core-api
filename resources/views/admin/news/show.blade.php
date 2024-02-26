@@ -1,3 +1,9 @@
+<?php
+
+use App\Models\News;
+
+?>
+
 @extends('admin.layouts.main')
 
 @section('content')
@@ -64,7 +70,7 @@
                                         </tr>
                                         <tr>
                                             <td>status</td>
-                                            <td>{{ $news->status }}</td>
+                                            <td>{{ News::getStatusName($news->status) }}</td>
                                         </tr>
                                         <tr>
                                             <td>date</td>

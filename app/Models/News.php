@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Arr;
 
 /**
  * App\Models\News
@@ -60,8 +61,8 @@ class News extends Model
     public static function getStatusArray()
     {
         return [
-            self::PUBLISHED_STATUS => 'PUBLISHED_STATUS',
-            self::HIDDEN_STATUS => 'HIDDEN_STATUS',
+            self::PUBLISHED_STATUS => 'Puplished',
+            self::HIDDEN_STATUS => 'Hidden',
         ];
     }
 
@@ -69,8 +70,8 @@ class News extends Model
      * Получение названия типа состояния.
      * @return mixed
      */
-    public function getStatysName()
+    public static function getStatusName($status)
     {
-        return ArrayHelper::getValue(self::getStatusArray(), $this->status);
+        return Arr::get(self::getStatusArray(), $status);
     }
 }
