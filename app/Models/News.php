@@ -57,18 +57,23 @@ class News extends Model
         'date',
     ];
 
-
+    /**
+     * Получение списка статусов.
+     * @return string[]
+     */
     public static function getStatusArray()
     {
         return [
-            self::PUBLISHED_STATUS => 'Puplished',
+            self::PUBLISHED_STATUS => 'Published',
             self::HIDDEN_STATUS => 'Hidden',
         ];
     }
 
+
     /**
-     * Получение названия типа состояния.
-     * @return mixed
+     * Получение названия статуса.
+     * @param $status
+     * @return array|\ArrayAccess|mixed
      */
     public static function getStatusName($status)
     {
