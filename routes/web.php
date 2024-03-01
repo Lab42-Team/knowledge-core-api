@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('client/welcome');
+});
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+    Route::get('/', [IndexController::class, 'index']);
 });
