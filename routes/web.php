@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\KnowledgeCoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,9 @@ Route::get('/', function () {
     return view('client/welcome');
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function() {
     Route::get('/', [IndexController::class, 'index']);
+    Route::name('admin.')->group(function () {
+        Route::resource('knowledge-core', KnowledgeCoreController::class);
+    });
 });

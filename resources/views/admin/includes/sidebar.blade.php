@@ -23,16 +23,16 @@
             <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
                 <li class="nav-item menu-open"> <a href="#" class="nav-link active"> <i class="nav-icon bi bi-table"></i>
                         <p>
-                            Dashboard
+                            Таблицы
                             <i class="nav-arrow bi bi-chevron-right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item"> <a href="#" class="nav-link active"> <i class="nav-icon bi bi-circle"></i>
-                                <p>Dashboard v1</p>
+                        <li class="nav-item"> <a href="{{ route('admin.knowledge-core.index') }}" class="nav-link"> <i class="nav-icon bi bi-1-circle"></i>
+                                <p>Ядро знаний</p>
                             </a> </li>
                         <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
-                                <p>Dashboard v2</p>
+                                <p>Новости</p>
                             </a> </li>
                         <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                 <p>Dashboard v3</p>
