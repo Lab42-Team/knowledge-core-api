@@ -10,13 +10,13 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3 class="mb-0">Ядро знаний</h3>
+                        <h3 class="mb-0">Основная информация</h3>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-end">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Ядро знаний
+                                Основная информация
                             </li>
                         </ol>
                     </div>
@@ -47,13 +47,13 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Description</th>
-                                    <th>Phone</th>
-                                    <th>Email</th>
-                                    <th>Address</th>
-                                    <th>References</th>
-                                    <th>Lab_link</th>
-                                    <th>Github_link</th>
+                                    <th>Описание</th>
+                                    <th>Телефон</th>
+                                    <th>Электронная почта</th>
+                                    <th>Адрес</th>
+                                    <th>Публикации</th>
+                                    <th>Ссылка на сайт</th>
+                                    <th>Ссылка на GitHub</th>
                                     <th colspan="3">Действия</th>
                                 </tr>
                                 </thead>
@@ -68,13 +68,13 @@
                                         <td>{{ $knowledge_core->references }}</td>
                                         <td>{{ $knowledge_core->lab_link }}</td>
                                         <td>{{ $knowledge_core->github_link }}</td>
-                                        <td><a href="{{ route('admin.knowledge-core.show', $knowledge_core->id) }}"><i class="bi bi-eye-fill"></i></a></td>
-                                        <td><a href="{{ route('admin.knowledge-core.edit', $knowledge_core->id) }}"><i class="bi bi-pen-fill"></i></a></td>
+                                        <td><a title="Просмотр" href="{{ route('admin.knowledge-core.show', $knowledge_core->id) }}"><i class="bi bi-eye-fill"></i></a></td>
+                                        <td><a title="Редактировать" href="{{ route('admin.knowledge-core.edit', $knowledge_core->id) }}"><i class="bi bi-pen-fill"></i></a></td>
                                         <td>
                                             <form action="{{ route('admin.knowledge-core.destroy', $knowledge_core->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="border-0 bg-transparent">
+                                                <button type="submit" class="border-0 bg-transparent" title="Удалить">
                                                     <i class="bi bi-trash-fill text-danger"></i>
                                                 </button>
                                             </form>

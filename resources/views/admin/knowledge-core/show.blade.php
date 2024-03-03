@@ -10,13 +10,13 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3 class="mb-0">Ядро знаний: {{ $knowledgeCore->id }}</h3>
+                        <h3 class="mb-0">Основная информация: {{ $knowledgeCore->id }}</h3>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-end">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Ядро знаний
+                                Основная информация
                             </li>
                         </ol>
                     </div>
@@ -59,31 +59,31 @@
                                         <td>{{ $knowledgeCore->id }}</td>
                                     </tr>
                                     <tr>
-                                        <td>description</td>
+                                        <td>Описание</td>
                                         <td>{{ $knowledgeCore->description }}</td>
                                     </tr>
                                     <tr>
-                                        <td>phone</td>
+                                        <td>Телефон</td>
                                         <td>{{ $knowledgeCore->phone }}</td>
                                     </tr>
                                     <tr>
-                                        <td>email</td>
+                                        <td>Электронная почта</td>
                                         <td>{{ $knowledgeCore->email }}</td>
                                     </tr>
                                     <tr>
-                                        <td>address</td>
+                                        <td>Адрес</td>
                                         <td>{{ $knowledgeCore->address }}</td>
                                     </tr>
                                     <tr>
-                                        <td>references</td>
+                                        <td>Публикации</td>
                                         <td>{{ $knowledgeCore->references }}</td>
                                     </tr>
                                     <tr>
-                                        <td>lab_link</td>
+                                        <td>Ссылка на сайт лаборатории</td>
                                         <td>{{ $knowledgeCore->lab_link }}</td>
                                     </tr>
                                     <tr>
-                                        <td>github_link</td>
+                                        <td>Ссылка на группу GitHub</td>
                                         <td>{{ $knowledgeCore->github_link }}</td>
                                     </tr>
                                 </tbody>
