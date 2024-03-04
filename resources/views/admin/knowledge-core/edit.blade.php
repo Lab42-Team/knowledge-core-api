@@ -56,6 +56,9 @@
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Электронная почта</label>
                                     <input type="text" id="email" name="email" class="form-control" value="{{ $knowledgeCore->email }}">
+                                    @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="address" class="form-label">Адрес</label>

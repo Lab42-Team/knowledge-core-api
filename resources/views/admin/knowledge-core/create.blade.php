@@ -46,31 +46,34 @@
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Описание</label>
-                                    <textarea id="description" name="description" class="form-control"></textarea>
+                                    <textarea id="description" name="description" class="form-control">{{ old('description') }}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="phone" class="form-label">Телефон</label>
-                                    <input type="text" id="phone" name="phone" class="form-control">
+                                    <input type="text" id="phone" name="phone" class="form-control" value="{{ old('phone') }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Электронная почта</label>
-                                    <input type="text" id="email" name="email" class="form-control">
+                                    <input type="text" id="email" name="email" class="form-control" value="{{ old('email') }}">
+                                    @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="address" class="form-label">Адрес</label>
-                                    <input type="text" id="address" name="address" class="form-control">
+                                    <input type="text" id="address" name="address" class="form-control" value="{{ old('address') }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="references" class="form-label">Публикации</label>
-                                    <textarea id="references" name="references" class="form-control"></textarea>
+                                    <textarea id="references" name="references" class="form-control">{{ old('references') }}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="lab_link" class="form-label">Ссылка на сайт лаборатории</label>
-                                    <textarea id="lab_link" name="lab_link" class="form-control"></textarea>
+                                    <textarea id="lab_link" name="lab_link" class="form-control">{{ old('lab_link') }}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="github_link" class="form-label">Ссылка на группу GitHub</label>
-                                    <textarea id="github_link" name="github_link" class="form-control"></textarea>
+                                    <textarea id="github_link" name="github_link" class="form-control">{{ old('github_link') }}</textarea>
                                 </div>
                             </div>
                             <!--end::Body-->

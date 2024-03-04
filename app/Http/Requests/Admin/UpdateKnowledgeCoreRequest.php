@@ -24,11 +24,23 @@ class UpdateKnowledgeCoreRequest extends FormRequest
         return [
             'description' => 'string|nullable',
             'phone' => 'string|nullable',
-            'email' => 'string|nullable',
+            'email' => 'string|nullable|email:rfc,dns',
             'address' => 'string|nullable',
             'references' => 'string|nullable',
             'lab_link' => 'string|nullable',
             'github_link' => 'string|nullable',
+        ];
+    }
+
+    /**
+     * Изменение сообщений об ошибках для определенных правил валидации
+     *
+     * @return string[]
+     */
+    public function messages()
+    {
+        return [
+            'email.email' => 'Поле электронной почты должно быть действительным адресом электронной почты.',
         ];
     }
 }
