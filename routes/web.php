@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('/', [IndexController::class, 'index']);
+    Route::get('/', [IndexController::class, 'index'])->name('admin.index');
     Route::name('admin.')->group(function () {
         Route::resource('knowledge-core', KnowledgeCoreController::class);
     });

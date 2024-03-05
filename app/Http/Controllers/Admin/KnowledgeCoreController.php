@@ -59,8 +59,9 @@ class KnowledgeCoreController extends Controller
     public function update(UpdateKnowledgeCoreRequest $request, KnowledgeCore $knowledgeCore)
     {
         $data = $request->validated();
-        $model = $knowledgeCore->update($data);
-        $message = "Запись № ".$model["id"]." успешно изменена!";
+        $id = $knowledgeCore->id;
+        $knowledgeCore->update($data);
+        $message = "Запись № ".$id." успешно изменена!";
         return redirect()->route('admin.knowledge-core.show', $knowledgeCore->id)->with('success', $message);
     }
 
