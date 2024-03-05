@@ -48,8 +48,8 @@
                         </div>
 
                         <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
+                            <table class="table table-bordered table-striped">
+                                <thead class="table-primary">
                                 <tr>
                                     <th>ID</th>
                                     <th>Описание</th>
