@@ -32,8 +32,9 @@ class KnowledgeCoreController extends Controller
     public function store(StoreKnowledgeCoreRequest $request)
     {
         $data = $request->validated();
-        KnowledgeCore::create($data);
-        return redirect()->route('admin.knowledge-core.index')->with('success','Запись создана!');
+        $model = KnowledgeCore::create($data);
+        $message = "Запись № ".$model["id"]." успешно создана!";
+        return redirect()->route('admin.knowledge-core.index')->with('success', $message);
     }
 
     /**
@@ -58,8 +59,9 @@ class KnowledgeCoreController extends Controller
     public function update(UpdateKnowledgeCoreRequest $request, KnowledgeCore $knowledgeCore)
     {
         $data = $request->validated();
-        $knowledgeCore->update($data);
-        return redirect()->route('admin.knowledge-core.show', $knowledgeCore->id)->with('success','Запись изменена!');
+        $model = $knowledgeCore->update($data);
+        $message = "Запись № ".$model["id"]." успешно изменена!";
+        return redirect()->route('admin.knowledge-core.show', $knowledgeCore->id)->with('success', $message);
     }
 
     /**
@@ -67,7 +69,9 @@ class KnowledgeCoreController extends Controller
      */
     public function destroy(KnowledgeCore $knowledgeCore)
     {
+        $id = $knowledgeCore->id;
         $knowledgeCore->delete();
-        return redirect()->route('admin.knowledge-core.index')->with('error','Запись удалена!');
+        $message = "Запись № ".$id." успешно удалена!";
+        return redirect()->route('admin.knowledge-core.index')->with('error', $message);
     }
 }
