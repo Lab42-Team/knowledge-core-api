@@ -33,7 +33,7 @@ class KnowledgeCoreController extends Controller
     {
         $data = $request->validated();
         KnowledgeCore::create($data);
-        return redirect()->route('admin.knowledge-core.index');
+        return redirect()->route('admin.knowledge-core.index')->with('success','Запись создана!');
     }
 
     /**
@@ -59,7 +59,7 @@ class KnowledgeCoreController extends Controller
     {
         $data = $request->validated();
         $knowledgeCore->update($data);
-        return redirect()->route('admin.knowledge-core.show', $knowledgeCore->id);
+        return redirect()->route('admin.knowledge-core.show', $knowledgeCore->id)->with('success','Запись изменена!');
     }
 
     /**
@@ -68,6 +68,6 @@ class KnowledgeCoreController extends Controller
     public function destroy(KnowledgeCore $knowledgeCore)
     {
         $knowledgeCore->delete();
-        return redirect()->route('admin.knowledge-core.index');
+        return redirect()->route('admin.knowledge-core.index')->with('error','Запись удалена!');
     }
 }

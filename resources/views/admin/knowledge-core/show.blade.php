@@ -51,6 +51,11 @@
                         </div>
                         <!-- /.card-header -->
 
+                        <!-- Блок флэш сообщений -->
+                        <div class="card-body">
+                            @include('admin.knowledge-core.flash-message')
+                        </div>
+
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <tbody>

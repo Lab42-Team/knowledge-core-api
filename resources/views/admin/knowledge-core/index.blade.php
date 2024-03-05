@@ -32,7 +32,6 @@
             <div class="container-fluid">
                 <!--begin::Row-->
                 <div class="row">
-
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="d-inline-flex gap-1">
@@ -42,6 +41,12 @@
                             </div>
                         </div>
                         <!-- /.card-header -->
+
+                        <!-- Блок флэш сообщений -->
+                        <div class="card-body">
+                            @include('admin.knowledge-core.flash-message')
+                        </div>
+
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
