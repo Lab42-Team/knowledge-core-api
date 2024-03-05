@@ -79,7 +79,7 @@
                             <!--end::Body-->
                             <!--begin::Footer-->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Добавить</button>
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg"></i> Добавить</button>
                             </div>
                             <!--end::Footer-->
                         </form>

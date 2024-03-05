@@ -36,7 +36,7 @@
                         <div class="card-header">
                             <div class="d-inline-flex gap-1">
                                 <a class="btn btn-primary" href="{{ route('admin.knowledge-core.create') }}" role="button">
-                                    Добавить
+                                    <i class="bi bi-plus-lg"></i> Добавить
                                 </a>
                             </div>
                         </div>

@@ -37,15 +37,15 @@
                         <div class="card-header">
                             <div class="d-inline-flex gap-1">
                                 <a class="btn btn-primary" href="{{ route('admin.knowledge-core.index') }}" role="button">
-                                    Назад
+                                    <i class="bi bi-arrow-90deg-left"></i> Назад
                                 </a>
                                 <a class="btn btn-success" href="{{ route('admin.knowledge-core.edit', $knowledgeCore->id) }}" role="button">
-                                    Редактировать
+                                    <i class="bi bi-pen"></i> Редактировать
                                 </a>
                                 <form action="{{ route('admin.knowledge-core.destroy', $knowledgeCore->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Удалить" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Удалить</button>
                                 </form>
                             </div>
                         </div>
