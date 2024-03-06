@@ -10,7 +10,7 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-12">
-                        <ol class="breadcrumb float-sm-end">
+                        <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Основная информация
