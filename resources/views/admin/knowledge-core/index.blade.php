@@ -11,16 +11,16 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('main.HOME') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Основная информация
+                                {{ __('main.KNOWLEDGE_CORE') }}
                             </li>
                         </ol>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="mb-0">Основная информация</h3>
+                        <h3 class="mb-0">{{ __('main.KNOWLEDGE_CORE') }}</h3>
                     </div>
                 </div>
                 <!--end::Row-->
@@ -38,7 +38,7 @@
                         <div class="card-header">
                             <div class="d-inline-flex gap-1">
                                 <a class="btn btn-primary" href="{{ route('admin.knowledge-core.create') }}" role="button">
-                                    <i class="bi bi-plus-lg"></i> Добавить
+                                    <i class="bi bi-plus-lg"></i> {{ __('main.BUTTON_ADD') }}
                                 </a>
                             </div>
                         </div>
@@ -53,15 +53,15 @@
                             <table class="table table-bordered table-striped">
                                 <thead class="table-primary">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Описание</th>
-                                    <th>Телефон</th>
-                                    <th>Электронная почта</th>
-                                    <th>Адрес</th>
-                                    <th>Публикации</th>
-                                    <th>Ссылка на сайт</th>
-                                    <th>Ссылка на GitHub</th>
-                                    <th colspan="3">Действия</th>
+                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_ID') }}</th>
+                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_DESCRIPTION') }}</th>
+                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_PHONE') }}</th>
+                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_EMAIL') }}</th>
+                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_ADDRESS') }}</th>
+                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_REFERENCES') }}</th>
+                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_LAB_LINK_SHORT') }}</th>
+                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_GITHUB_LINK_SHORT') }}</th>
+                                    <th colspan="3">{{ __('main.ACTIONS') }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>

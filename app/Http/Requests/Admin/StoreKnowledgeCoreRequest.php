@@ -40,7 +40,7 @@ class StoreKnowledgeCoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.email' => 'Поле электронной почты должно быть действительным адресом электронной почты.',
+            'email.email' => __('main.KNOWLEDGE_CORE_ERROR_MESSAGE_EMAIL'),
         ];
     }
 }
