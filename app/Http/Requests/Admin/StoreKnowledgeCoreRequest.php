@@ -40,7 +40,7 @@ class StoreKnowledgeCoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.email' => __('main.KNOWLEDGE_CORE_ERROR_MESSAGE_EMAIL'),
+            'email.email' => __('knowledge_core.KNOWLEDGE_CORE_ERROR_MESSAGE.EMAIL'),
         ];
     }
 }

@@ -12,16 +12,16 @@
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('main.HOME') }}</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.knowledge-core.index') }}">{{ __('main.KNOWLEDGE_CORE') }}</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.knowledge-core.index') }}">{{ __('knowledge_core.KNOWLEDGE_CORE') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ __('main.KNOWLEDGE_CORE_ID', ['id' => $knowledgeCore->id]) }}
+                                {{ __('knowledge_core.KNOWLEDGE_CORE_ID', ['id' => $knowledgeCore->id]) }}
                             </li>
                         </ol>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="mb-0">{{ __('main.KNOWLEDGE_CORE_ID', ['id' => $knowledgeCore->id]) }}</h3>
+                        <h3 class="mb-0">{{ __('knowledge_core.KNOWLEDGE_CORE_ID', ['id' => $knowledgeCore->id]) }}</h3>
                     </div>
                 </div>
                 <!--end::Row-->
@@ -63,35 +63,35 @@
                             <table class="table table-bordered">
                                 <tbody>
                                     <tr>
-                                        <td>{{ __('main.KNOWLEDGE_CORE_MODEL_ID') }}</td>
+                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ID') }}</td>
                                         <td>{{ $knowledgeCore->id }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('main.KNOWLEDGE_CORE_MODEL_DESCRIPTION') }}</td>
+                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.DESCRIPTION') }}</td>
                                         <td>{{ $knowledgeCore->description }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('main.KNOWLEDGE_CORE_MODEL_PHONE') }}</td>
+                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.PHONE') }}</td>
                                         <td>{{ $knowledgeCore->phone }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('main.KNOWLEDGE_CORE_MODEL_EMAIL') }}</td>
+                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.EMAIL') }}</td>
                                         <td>{{ $knowledgeCore->email }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('main.KNOWLEDGE_CORE_MODEL_ADDRESS') }}</td>
+                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ADDRESS') }}</td>
                                         <td>{{ $knowledgeCore->address }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('main.KNOWLEDGE_CORE_MODEL_REFERENCES') }}</td>
+                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.REFERENCES') }}</td>
                                         <td>{{ $knowledgeCore->references }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('main.KNOWLEDGE_CORE_MODEL_LAB_LINK') }}</td>
+                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.LAB_LINK') }}</td>
                                         <td>{{ $knowledgeCore->lab_link }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('main.KNOWLEDGE_CORE_MODEL_GITHUB_LINK') }}</td>
+                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.GITHUB_LINK') }}</td>
                                         <td>{{ $knowledgeCore->github_link }}</td>
                                     </tr>
                                 </tbody>

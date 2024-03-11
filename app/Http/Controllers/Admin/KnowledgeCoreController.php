@@ -33,7 +33,7 @@ class KnowledgeCoreController extends Controller
     {
         $data = $request->validated();
         $model = KnowledgeCore::create($data);
-        $message = __('main.KNOWLEDGE_CORE_MESSAGE_CREATED', ['id' => $model["id"]]);
+        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CREATED', ['id' => $model["id"]]);
         return redirect()->route('admin.knowledge-core.index')->with('success', $message);
     }
 
@@ -61,7 +61,7 @@ class KnowledgeCoreController extends Controller
         $data = $request->validated();
         $id = $knowledgeCore->id;
         $knowledgeCore->update($data);
-        $message = __('main.KNOWLEDGE_CORE_MESSAGE_CHANGED', ['id' => $id]);
+        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CHANGED', ['id' => $id]);
         return redirect()->route('admin.knowledge-core.show', $knowledgeCore->id)->with('success', $message);
     }
 
@@ -72,7 +72,7 @@ class KnowledgeCoreController extends Controller
     {
         $id = $knowledgeCore->id;
         $knowledgeCore->delete();
-        $message = __('main.KNOWLEDGE_CORE_MESSAGE_DELETED', ['id' => $id]);
+        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.DELETED', ['id' => $id]);
         return redirect()->route('admin.knowledge-core.index')->with('error', $message);
     }
 }

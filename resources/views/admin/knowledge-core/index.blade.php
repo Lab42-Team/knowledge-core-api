@@ -13,14 +13,14 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('main.HOME') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ __('main.KNOWLEDGE_CORE') }}
+                                {{ __('knowledge_core.KNOWLEDGE_CORE') }}
                             </li>
                         </ol>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="mb-0">{{ __('main.KNOWLEDGE_CORE') }}</h3>
+                        <h3 class="mb-0">{{ __('knowledge_core.KNOWLEDGE_CORE') }}</h3>
                     </div>
                 </div>
                 <!--end::Row-->
@@ -53,14 +53,14 @@
                             <table class="table table-bordered table-striped">
                                 <thead class="table-primary">
                                 <tr>
-                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_ID') }}</th>
-                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_DESCRIPTION') }}</th>
-                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_PHONE') }}</th>
-                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_EMAIL') }}</th>
-                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_ADDRESS') }}</th>
-                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_REFERENCES') }}</th>
-                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_LAB_LINK_SHORT') }}</th>
-                                    <th>{{ __('main.KNOWLEDGE_CORE_MODEL_GITHUB_LINK_SHORT') }}</th>
+                                    <th>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ID') }}</th>
+                                    <th>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.DESCRIPTION') }}</th>
+                                    <th>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.PHONE') }}</th>
+                                    <th>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.EMAIL') }}</th>
+                                    <th>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ADDRESS') }}</th>
+                                    <th>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.REFERENCES') }}</th>
+                                    <th>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.LAB_LINK_SHORT') }}</th>
+                                    <th>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.GITHUB_LINK_SHORT') }}</th>
                                     <th colspan="3">{{ __('main.ACTIONS') }}</th>
                                 </tr>
                                 </thead>
@@ -75,13 +75,13 @@
                                         <td>{{ $knowledge_core->references }}</td>
                                         <td>{{ $knowledge_core->lab_link }}</td>
                                         <td>{{ $knowledge_core->github_link }}</td>
-                                        <td><a title="Просмотр" href="{{ route('admin.knowledge-core.show', $knowledge_core->id) }}"><i class="bi bi-eye-fill"></i></a></td>
-                                        <td><a title="Редактировать" href="{{ route('admin.knowledge-core.edit', $knowledge_core->id) }}"><i class="bi bi-pen-fill"></i></a></td>
+                                        <td><a title="{{ __('main.BUTTON_VIEW') }}" href="{{ route('admin.knowledge-core.show', $knowledge_core->id) }}"><i class="bi bi-eye-fill"></i></a></td>
+                                        <td><a title="{{ __('main.BUTTON_EDIT') }}" href="{{ route('admin.knowledge-core.edit', $knowledge_core->id) }}"><i class="bi bi-pen-fill"></i></a></td>
                                         <td>
                                             <form action="{{ route('admin.knowledge-core.destroy', $knowledge_core->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="border-0 bg-transparent" title="Удалить">
+                                                <button type="submit" class="border-0 bg-transparent" title="{{ __('main.BUTTON_DELETE') }}">
                                                     <i class="bi bi-trash-fill text-danger"></i>
                                                 </button>
                                             </form>

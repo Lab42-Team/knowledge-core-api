@@ -29,7 +29,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item"> <a href="{{ route('admin.knowledge-core.index') }}" class="nav-link"> <i class="nav-icon bi bi-1-circle"></i>
-                                <p>{{ __('main.KNOWLEDGE_CORE') }}</p>
+                                <p>{{ __('knowledge_core.KNOWLEDGE_CORE') }}</p>
                             </a> </li>
                         <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
                                 <p>Новости</p>
