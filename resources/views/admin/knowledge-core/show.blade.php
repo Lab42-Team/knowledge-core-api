@@ -12,16 +12,16 @@
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('main.HOME') }}</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.knowledge-core.index') }}">{{ __('knowledge_core.KNOWLEDGE_CORE') }}</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.knowledge-core.index') }}">{{ __('knowledge_core.KNOWLEDGE_CORE_PAGE.LIST') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ __('knowledge_core.KNOWLEDGE_CORE_ID', ['id' => $knowledgeCore->id]) }}
+                                {{ __('knowledge_core.KNOWLEDGE_CORE_PAGE.VIEW', ['id' => $knowledgeCore->id]) }}
                             </li>
                         </ol>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="mb-0">{{ __('knowledge_core.KNOWLEDGE_CORE_ID', ['id' => $knowledgeCore->id]) }}</h3>
+                        <h3 class="mb-0">{{ __('knowledge_core.KNOWLEDGE_CORE_PAGE.VIEW', ['id' => $knowledgeCore->id]) }}</h3>
                     </div>
                 </div>
                 <!--end::Row-->

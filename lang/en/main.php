@@ -14,7 +14,7 @@ return [
 
     // Кнопки
     'BUTTON_ADD' => 'Add',
-    'BUTTON_VIEW' => 'Viewing',
+    'BUTTON_VIEW' => 'View',
     'BUTTON_BACK' => 'Back',
     'BUTTON_EDIT' => 'Edit',
     'BUTTON_UPDATE' => 'Update',

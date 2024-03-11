@@ -13,14 +13,14 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('main.HOME') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ __('knowledge_core.KNOWLEDGE_CORE') }}
+                                {{ __('knowledge_core.KNOWLEDGE_CORE_PAGE.LIST') }}
                             </li>
                         </ol>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="mb-0">{{ __('knowledge_core.KNOWLEDGE_CORE') }}</h3>
+                        <h3 class="mb-0">{{ __('knowledge_core.KNOWLEDGE_CORE_PAGE.LIST') }}</h3>
                     </div>
                 </div>
                 <!--end::Row-->

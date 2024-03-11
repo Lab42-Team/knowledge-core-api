@@ -1,11 +1,13 @@
 <?php
 
 return [
-    // Заголовки форм
-    'KNOWLEDGE_CORE' => 'General information',
-    'KNOWLEDGE_CORE_ADDING' => 'Adding general information',
-    'KNOWLEDGE_CORE_ID' => 'General information: :id',
-    'KNOWLEDGE_CORE_ADDING_ID' => 'Adding general information: :id',
+    // Заголовки страниц
+    'KNOWLEDGE_CORE_PAGE' => [
+        'LIST' => 'General information',
+        'ADD' => 'Adding general information',
+        'VIEW' => 'General information: :id',
+        'EDIT' => 'Editing general information: :id',
+    ],
 
     // Форма Knowledge core
     'KNOWLEDGE_CORE_MODEL' => [
