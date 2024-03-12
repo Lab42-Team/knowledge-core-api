@@ -1,6 +1,5 @@
 <p align="center">
     <h1 align="center">Knowledge Core</h1>
-    <br />
 </p>
 
 **The Knowledge Core** is a web-based application to modelling knowledge and prototyping knowledge bases.
