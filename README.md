@@ -1,4 +1,7 @@
-<p align="center"><h1>Knowledge Core</h1></p>
+<p align="center">
+    <h1 align="center">Knowledge Core</h1>
+    <br />
+</p>
 
 **The Knowledge Core** is a web-based application to modelling knowledge and prototyping knowledge bases.
 
@@ -15,7 +18,7 @@ The Knowledge Core is based on [PHP 8](https://www.php.net/releases/8.0/ru.php) 
 
 0.1
 
-## Author
+## Authors
 * [Dmitry A. Shpachenko](mailto:demix357@mail.ru)
 * [Nikita O. Dorodnykh](mailto:tualatin32@mail.ru)
 * [Aleksandr Yu. Yurin](mailto:iskander@icc.ru)
