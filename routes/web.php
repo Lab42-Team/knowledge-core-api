@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\KnowledgeCoreController;
 
@@ -14,14 +15,17 @@ use App\Http\Controllers\Admin\KnowledgeCoreController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('locale/{locale}', [MainController::class, 'changeLocale'])->name('locale');
 
-Route::get('/', function () {
-    return view('client/welcome');
-});
+Route::middleware(['set_locale'])->group(function(){
+    Route::get('/', function () {
+        return view('client/welcome');
+    });
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('/', [IndexController::class, 'index'])->name('admin.index');
-    Route::name('admin.')->group(function () {
-        Route::resource('knowledge-core', KnowledgeCoreController::class);
+    Route::group(['prefix' => 'admin'], function() {
+        Route::get('/', [IndexController::class, 'index'])->name('admin.index');
+        Route::name('admin.')->group(function () {
+            Route::resource('knowledge-core', KnowledgeCoreController::class);
+        });
     });
 });
