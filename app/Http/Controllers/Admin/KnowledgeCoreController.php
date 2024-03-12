@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreKnowledgeCoreRequest;
 use App\Http\Requests\Admin\UpdateKnowledgeCoreRequest;
 use App\Models\KnowledgeCore;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class KnowledgeCoreController extends Controller
 {
@@ -28,17 +32,22 @@ class KnowledgeCoreController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param StoreKnowledgeCoreRequest $request
+     * @return RedirectResponse
      */
     public function store(StoreKnowledgeCoreRequest $request)
     {
-        $data = $request->validated();
-        $model = KnowledgeCore::create($data);
+        $model = KnowledgeCore::create($request->validated());
         $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CREATED', ['id' => $model["id"]]);
         return redirect()->route('admin.knowledge-core.index')->with('success', $message);
     }
 
     /**
      * Display the specified resource.
+     *
+     * @param KnowledgeCore $knowledgeCore
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function show(KnowledgeCore $knowledgeCore)
     {
@@ -47,6 +56,9 @@ class KnowledgeCoreController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param KnowledgeCore $knowledgeCore
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function edit(KnowledgeCore $knowledgeCore)
     {
@@ -55,24 +67,28 @@ class KnowledgeCoreController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param UpdateKnowledgeCoreRequest $request
+     * @param KnowledgeCore $knowledgeCore
+     * @return RedirectResponse
      */
     public function update(UpdateKnowledgeCoreRequest $request, KnowledgeCore $knowledgeCore)
     {
-        $data = $request->validated();
-        $id = $knowledgeCore->id;
-        $knowledgeCore->update($data);
-        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CHANGED', ['id' => $id]);
+        $knowledgeCore->update($request->validated());
+        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CHANGED', ['id' => $knowledgeCore->id]);
         return redirect()->route('admin.knowledge-core.show', $knowledgeCore->id)->with('success', $message);
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param KnowledgeCore $knowledgeCore
+     * @return RedirectResponse
      */
     public function destroy(KnowledgeCore $knowledgeCore)
     {
-        $id = $knowledgeCore->id;
         $knowledgeCore->delete();
-        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.DELETED', ['id' => $id]);
+        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.DELETED', ['id' => $knowledgeCore->id]);
         return redirect()->route('admin.knowledge-core.index')->with('error', $message);
     }
 }

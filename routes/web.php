@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\KnowledgeCoreController;
 */
 Route::get('locale/{locale}', [MainController::class, 'changeLocale'])->name('locale');
 
-Route::middleware(['set_locale'])->group(function(){
+Route::middleware(['set_locale'])->group(function() {
     Route::get('/', function () {
         return view('client/welcome');
     });
