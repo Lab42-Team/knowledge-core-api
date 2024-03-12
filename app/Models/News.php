@@ -34,8 +34,8 @@ class News extends Model
     use HasFactory;
 
     // Статусы новостей, которые будут публиковаться на платформе
-    const PUBLISHED_STATUS = 0;  // Опубликована (новость открыта для отображения на сайте)
-    const HIDDEN_STATUS = 1; // Скрытая (новость скрыта для отображения на сайте)
+    const PUBLISHED_STATUS = 0; // Опубликована (новость открыта для отображения на сайте)
+    const HIDDEN_STATUS = 1;    // Скрытая (новость скрыта для отображения на сайте)
 
     /**
      * The table associated with the model.

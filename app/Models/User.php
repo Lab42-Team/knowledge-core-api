@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -53,9 +52,9 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     // Роли пользователей
-    const ADMIN_ROLE = 0;       // Администратор (может все в рамках системы)
-    const USER_ROLE = 1;        // Обычный пользователь (зарегистрированный пользователь, которому доступны функции платформы)
-    const GUEST_ROLE = 2;       // Гость (ничего не может, только видит что-то рекламное или информационное, а также видит открытые проекты)
+    const ADMIN_ROLE = 0; // Администратор (может все в рамках системы)
+    const USER_ROLE = 1;  // Обычный пользователь (зарегистрированный пользователь, которому доступны функции платформы)
+    const GUEST_ROLE = 2; // Гость (ничего не может, только видит что-то рекламное или информационное, а также видит открытые проекты)
 
     // Статусы пользователей
     const ACTIVE_STATUS = 0;       // Авторизованный пользователь, который может взаимодействовать с системой
