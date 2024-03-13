@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\KnowledgeCoreController;
+use App\Http\Controllers\Admin\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::middleware(['set_locale'])->group(function() {
         Route::get('/', [IndexController::class, 'index'])->name('admin.index');
         Route::name('admin.')->group(function () {
             Route::resource('knowledge-core', KnowledgeCoreController::class);
+            Route::resource('news', NewsController::class);
         });
     });
 });
