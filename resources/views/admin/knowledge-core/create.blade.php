@@ -50,6 +50,9 @@
                                 <div class="mb-3">
                                     <label for="description" class="form-label">{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.DESCRIPTION') }}</label>
                                     <textarea id="description" name="description" class="form-control">{{ old('description') }}</textarea>
+                                    @error('description')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="phone" class="form-label">{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.PHONE') }}</label>

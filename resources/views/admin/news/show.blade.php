@@ -66,7 +66,7 @@ use App\Models\News;
                         </div>
 
                         <div class="card-body">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-striped">
                                 <tbody>
                                     <tr>
                                         <td>{{ __('news.NEWS_MODEL.ID') }}</td>

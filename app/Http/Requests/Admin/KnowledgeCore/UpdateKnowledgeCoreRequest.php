@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Admin\KnowledgeCore;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -23,10 +23,10 @@ class UpdateKnowledgeCoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'string|nullable',
-            'phone' => 'string|nullable',
-            'email' => 'string|nullable|email:rfc,dns',
-            'address' => 'string|nullable',
+            'description' => 'string|nullable|unique:App\Models\KnowledgeCore,description',
+            'phone' => 'string|nullable|max:255',
+            'email' => 'string|nullable|email:rfc,dns|max:255',
+            'address' => 'string|nullable|max:255',
             'references' => 'string|nullable',
             'lab_link' => 'string|nullable',
             'github_link' => 'string|nullable',
@@ -42,6 +42,7 @@ class UpdateKnowledgeCoreRequest extends FormRequest
     {
         return [
             'email.email' => __('knowledge_core.KNOWLEDGE_CORE_ERROR_MESSAGE.EMAIL'),
+            'description.unique' => __('knowledge_core.KNOWLEDGE_CORE_ERROR_MESSAGE.DESCRIPTION'),
         ];
     }
 }

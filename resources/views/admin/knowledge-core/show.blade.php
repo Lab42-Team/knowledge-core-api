@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="card-body">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-striped">
                                 <tbody>
                                     <tr>
                                         <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ID') }}</td>

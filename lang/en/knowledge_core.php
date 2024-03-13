@@ -33,6 +33,7 @@ return [
     // Текст сообщений ошибок заполнения полей формы Knowledge core
     'KNOWLEDGE_CORE_ERROR_MESSAGE' => [
         'EMAIL' => 'The email field must be a valid email address.',
+        'DESCRIPTION' => 'The description has already been taken.',
     ],
 ];
 
