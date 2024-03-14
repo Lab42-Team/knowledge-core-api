@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\News;
+use Carbon\Carbon;
 
 ?>
 
@@ -86,7 +87,7 @@ use App\Models\News;
                                     </tr>
                                     <tr>
                                         <td>{{ __('news.NEWS_MODEL.DATE') }}</td>
-                                        <td>{{ $news->date }}</td>
+                                        <td>{{ Carbon::parse($news->date)->format('d-m-Y') }}</td>
                                     </tr>
 
                                 </tbody>
