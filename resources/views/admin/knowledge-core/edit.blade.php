@@ -70,14 +70,23 @@
                                 <div class="mb-3">
                                     <label for="references" class="form-label">{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.REFERENCES') }}</label>
                                     <textarea id="references" name="references" class="form-control">{{ $knowledgeCore->references }}</textarea>
+                                    @error('references')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="lab_link" class="form-label">{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.LAB_LINK') }}</label>
                                     <textarea id="lab_link" name="lab_link" class="form-control">{{ $knowledgeCore->lab_link }}</textarea>
+                                    @error('lab_link')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="github_link" class="form-label">{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.GITHUB_LINK') }}</label>
                                     <textarea id="github_link" name="github_link" class="form-control">{{ $knowledgeCore->github_link }}</textarea>
+                                    @error('github_link')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <!--end::Body-->

@@ -50,9 +50,6 @@
                                 <div class="mb-3">
                                     <label for="description" class="form-label">{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.DESCRIPTION') }}</label>
                                     <textarea id="description" name="description" class="form-control">{{ old('description') }}</textarea>
-                                    @error('description')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="phone" class="form-label">{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.PHONE') }}</label>
@@ -72,14 +69,23 @@
                                 <div class="mb-3">
                                     <label for="references" class="form-label">{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.REFERENCES') }}</label>
                                     <textarea id="references" name="references" class="form-control">{{ old('references') }}</textarea>
+                                    @error('references')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="lab_link" class="form-label">{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.LAB_LINK') }}</label>
                                     <textarea id="lab_link" name="lab_link" class="form-control">{{ old('lab_link') }}</textarea>
+                                    @error('lab_link')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="github_link" class="form-label">{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.GITHUB_LINK') }}</label>
                                     <textarea id="github_link" name="github_link" class="form-control">{{ old('github_link') }}</textarea>
+                                    @error('github_link')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <!--end::Body-->

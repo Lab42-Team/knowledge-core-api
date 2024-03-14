@@ -23,13 +23,13 @@ class StoreKnowledgeCoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'string|nullable|unique:App\Models\KnowledgeCore,description',
+            'description' => 'string|nullable',
             'phone' => 'string|nullable|max:255',
-            'email' => 'string|nullable|email:rfc,dns|max:255',
+            'email' => 'string|nullable|email:rfc,dns|max:255|unique:App\Models\KnowledgeCore,email',
             'address' => 'string|nullable|max:255',
-            'references' => 'string|nullable',
-            'lab_link' => 'string|nullable',
-            'github_link' => 'string|nullable',
+            'references' => 'string|nullable|unique:App\Models\KnowledgeCore,references',
+            'lab_link' => 'string|nullable|unique:App\Models\KnowledgeCore,lab_link',
+            'github_link' => 'string|nullable|unique:App\Models\KnowledgeCore,github_link',
         ];
     }
 
@@ -42,7 +42,10 @@ class StoreKnowledgeCoreRequest extends FormRequest
     {
         return [
             'email.email' => __('knowledge_core.KNOWLEDGE_CORE_ERROR_MESSAGE.EMAIL'),
-            'description.unique' => __('knowledge_core.KNOWLEDGE_CORE_ERROR_MESSAGE.DESCRIPTION'),
+            'email.unique' => __('knowledge_core.KNOWLEDGE_CORE_ERROR_MESSAGE.EMAIL_UNIQUE'),
+            'references.unique' => __('knowledge_core.KNOWLEDGE_CORE_ERROR_MESSAGE.REFERENCES_UNIQUE'),
+            'lab_link.unique' => __('knowledge_core.KNOWLEDGE_CORE_ERROR_MESSAGE.LAB_LINK_UNIQUE'),
+            'github_link.unique' => __('knowledge_core.KNOWLEDGE_CORE_ERROR_MESSAGE.GITHUB_LINK_UNIQUE'),
         ];
     }
 }

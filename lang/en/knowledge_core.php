@@ -33,7 +33,10 @@ return [
     // Текст сообщений ошибок заполнения полей формы Knowledge core
     'KNOWLEDGE_CORE_ERROR_MESSAGE' => [
         'EMAIL' => 'The email field must be a valid email address.',
-        'DESCRIPTION' => 'The description has already been taken.',
+        'EMAIL_UNIQUE' => 'The email has already been taken.',
+        'REFERENCES_UNIQUE' => 'The references has already been taken.',
+        'LAB_LINK_UNIQUE' => 'The link to the laboratory website has already been taken.',
+        'GITHUB_LINK_UNIQUE' => 'The GitHub group link has already been taken.',
     ],
 ];
 
