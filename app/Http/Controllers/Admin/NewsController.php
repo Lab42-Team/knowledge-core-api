@@ -25,7 +25,7 @@ class NewsController extends Controller
     public function create()
     {
         $statuses = News::getStatusArray();
-        $data_now = Carbon::now();
+        $data_now = Carbon::now()->format('Y-m-d');
         return view('admin.news.create', compact('statuses','data_now'));
     }
 
@@ -54,7 +54,9 @@ class NewsController extends Controller
     public function edit(News $news)
     {
         $statuses = News::getStatusArray();
-        return view('admin.news.edit', compact('news', 'statuses'));
+        //получение даты новости которую редактируем в формате для подстановки в поле даты
+        $editable_date = Carbon::parse($news['date'])->format('Y-m-d');
+        return view('admin.news.edit', compact('news', 'statuses', 'editable_date'));
     }
 
     /**

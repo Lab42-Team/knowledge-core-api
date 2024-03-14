@@ -82,7 +82,7 @@ use App\Models\News;
                                 </div>
                                 <div class="mb-3">
                                     <label for="date" class="form-label">{{ __('news.NEWS_MODEL.DATE') }}</label>
-                                    <input type="text" id="date" name="date" class="form-control" value="{{ $news->date }}">
+                                    <input type="date" id="date" name="date" class="form-control" value="{{ $editable_date }}">
                                     @error('date')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror

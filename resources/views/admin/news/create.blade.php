@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="date" class="form-label">{{ __('news.NEWS_MODEL.DATE') }}</label>
-                                    <input type="text" id="date" name="date" class="form-control" value="{{ $data_now }}">
+                                    <input type="date" id="date" name="date" class="form-control" value="{{ $data_now }}">
                                     @error('date')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
