@@ -70,24 +70,24 @@ use Carbon\Carbon;
                             <table class="table table-bordered table-striped">
                                 <tbody>
                                     <tr>
-                                        <td>{{ __('news.NEWS_MODEL.ID') }}</td>
+                                        <td><b>{{ __('news.NEWS_MODEL.ID') }}</b></td>
                                         <td>{{ $news->id }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('news.NEWS_MODEL.NAME') }}</td>
+                                        <td><b>{{ __('news.NEWS_MODEL.NAME') }}</b></td>
                                         <td>{{ $news->name }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('news.NEWS_MODEL.DESCRIPTION') }}</td>
+                                        <td><b>{{ __('news.NEWS_MODEL.DESCRIPTION') }}</b></td>
                                         <td>{{ $news->description }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('news.NEWS_MODEL.STATUS') }}</td>
+                                        <td><b>{{ __('news.NEWS_MODEL.STATUS') }}</b></td>
                                         <td>{{ News::getStatusName($news->status) }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('news.NEWS_MODEL.DATE') }}</td>
-                                        <td>{{ Carbon::parse($news->date)->format('d-m-Y') }}</td>
+                                        <td><b>{{ __('news.NEWS_MODEL.DATE') }}</b></td>
+                                        <td>{{ Carbon::parse($news->date)->format('d.m.Y H:i') }}</td>
                                     </tr>
 
                                 </tbody>

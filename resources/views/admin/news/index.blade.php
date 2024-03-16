@@ -75,7 +75,7 @@ use Carbon\Carbon;
                                         <td>{{ $news->name }}</td>
                                         <td>{{ $news->description }}</td>
                                         <td>{{ News::getStatusName($news->status) }}</td>
-                                        <td>{{ Carbon::parse($news->date)->format('d-m-Y') }}</td>
+                                        <td>{{ Carbon::parse($news->date)->format('d.m.Y H:i') }}</td>
                                         <td><a title="{{ __('main.BUTTON_VIEW') }}" href="{{ route('admin.news.show', $news->id) }}"><i class="bi bi-eye-fill"></i></a></td>
                                         <td><a title="{{ __('main.BUTTON_EDIT') }}" href="{{ route('admin.news.edit', $news->id) }}"><i class="bi bi-pen-fill"></i></a></td>
                                         <td>

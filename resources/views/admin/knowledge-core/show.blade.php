@@ -63,35 +63,35 @@
                             <table class="table table-bordered table-striped">
                                 <tbody>
                                     <tr>
-                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ID') }}</td>
+                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ID') }}</b></td>
                                         <td>{{ $knowledgeCore->id }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.DESCRIPTION') }}</td>
+                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.DESCRIPTION') }}</b></td>
                                         <td>{{ $knowledgeCore->description }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.PHONE') }}</td>
+                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.PHONE') }}</b></td>
                                         <td>{{ $knowledgeCore->phone }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.EMAIL') }}</td>
+                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.EMAIL') }}</b></td>
                                         <td>{{ $knowledgeCore->email }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ADDRESS') }}</td>
+                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ADDRESS') }}</b></td>
                                         <td>{{ $knowledgeCore->address }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.REFERENCES') }}</td>
+                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.REFERENCES') }}</b></td>
                                         <td>{{ $knowledgeCore->references }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.LAB_LINK') }}</td>
+                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.LAB_LINK') }}</b></td>
                                         <td>{{ $knowledgeCore->lab_link }}</td>
                                     </tr>
                                     <tr>
-                                        <td>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.GITHUB_LINK') }}</td>
+                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.GITHUB_LINK') }}</b></td>
                                         <td>{{ $knowledgeCore->github_link }}</td>
                                     </tr>
                                 </tbody>

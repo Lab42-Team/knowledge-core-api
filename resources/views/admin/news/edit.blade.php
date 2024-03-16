@@ -82,7 +82,7 @@ use App\Models\News;
                                 </div>
                                 <div class="mb-3">
                                     <label for="date" class="form-label">{{ __('news.NEWS_MODEL.DATE') }}</label>
-                                    <input type="date" id="date" name="date" class="form-control" value="{{ $editable_date }}">
+                                    <input type="text" id="date" name="date" class="form-control" value="{{ $editable_date }}">
                                     @error('date')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -105,3 +105,30 @@ use App\Models\News;
     </main>
     <!--end::App Main-->
 @endsection
+
+@push('scripts')
+    <script>
+        var locale = '{{ config('app.locale') }}';
+        if (locale == 'EN') {
+            new AirDatepicker('#date', {
+                timepicker: true,
+                locale: {
+                    days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                    daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                    daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    today: 'Today',
+                    clear: 'Clear',
+                    dateFormat: 'dd.MM.yyyy',
+                    timeFormat: 'HH:mm',
+                    firstDay: 0
+                },
+            });
+        } else {
+            new AirDatepicker('#date', {
+                timepicker: true,
+            });
+        }
+    </script>
+@endpush
