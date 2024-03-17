@@ -59,6 +59,7 @@ class News extends Model
 
     /**
      * Получение списка статусов.
+     *
      * @return string[]
      */
     public static function getStatusArray()
@@ -71,6 +72,7 @@ class News extends Model
 
     /**
      * Получение названия статуса.
+     *
      * @param $status
      * @return array|\ArrayAccess|mixed
      */
