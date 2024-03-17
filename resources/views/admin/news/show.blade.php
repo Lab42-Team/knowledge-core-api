@@ -78,10 +78,6 @@ use Carbon\Carbon;
                                         <td>{{ $news->name }}</td>
                                     </tr>
                                     <tr>
-                                        <td><b>{{ __('news.NEWS_MODEL.DESCRIPTION') }}</b></td>
-                                        <td>{{ $news->description }}</td>
-                                    </tr>
-                                    <tr>
                                         <td><b>{{ __('news.NEWS_MODEL.STATUS') }}</b></td>
                                         <td>{{ News::getStatusName($news->status) }}</td>
                                     </tr>
@@ -89,7 +85,10 @@ use Carbon\Carbon;
                                         <td><b>{{ __('news.NEWS_MODEL.DATE') }}</b></td>
                                         <td>{{ Carbon::parse($news->date)->format('d.m.Y H:i') }}</td>
                                     </tr>
-
+                                    <tr>
+                                        <td><b>{{ __('news.NEWS_MODEL.DESCRIPTION') }}</b></td>
+                                        <td>{{ $news->description }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div> <!-- /.card-body -->
