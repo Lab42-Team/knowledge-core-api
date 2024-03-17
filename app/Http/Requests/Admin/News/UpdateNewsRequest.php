@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Admin\News;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreKnowledgeCoreRequest extends FormRequest
+class UpdateNewsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,13 +23,10 @@ class StoreKnowledgeCoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'name' => 'required|string|max:255',
             'description' => 'string|nullable',
-            'phone' => 'string|nullable',
-            'email' => 'string|nullable|email:rfc,dns',
-            'address' => 'string|nullable',
-            'references' => 'string|nullable',
-            'lab_link' => 'string|nullable',
-            'github_link' => 'string|nullable',
+            'status' => 'required|integer',
+            'date' => 'required|date',
         ];
     }
 
@@ -41,7 +38,9 @@ class StoreKnowledgeCoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.email' => __('knowledge_core.KNOWLEDGE_CORE_ERROR_MESSAGE.EMAIL'),
+            'name.required' => __('news.NEWS_ERROR_MESSAGE.NAME'),
+            'date.required' => __('news.NEWS_ERROR_MESSAGE.DATE_REQUIRED'),
+            'date.date' => __('news.NEWS_ERROR_MESSAGE.DATE_DATE'),
         ];
     }
 }

@@ -24,6 +24,10 @@
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="{{ asset('../../dist/css/adminlte.css') }}">
     <!--end::Required Plugin(AdminLTE)-->
+
+    <!--begin::Air Datepicker Plugin-->
+    <link rel="stylesheet" href="{{ asset('/css/air-datepicker.css') }}">
+    <!--end::Air Datepicker Plugin-->
 </head>
 <!--end::Head-->
 
@@ -124,6 +128,13 @@
     });
 </script>
 <!--end::OverlayScrollbars Configure-->
+
+<!--begin::Air Datepicker Plugin-->
+<script src="{{ asset('/js/air-datepicker.js') }}"></script>
+<!--end::Air Datepicker Plugin-->
+
+<!--Для запуска дополнительных скриптов-->
+@stack('scripts')
 
 <!--end::Script-->
 

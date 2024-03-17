@@ -1,3 +1,10 @@
+<?php
+
+use App\Models\News;
+use Carbon\Carbon;
+
+?>
+
 @extends('admin.layouts.main')
 
 @section('content')
@@ -12,16 +19,16 @@
                     <div class="col-sm-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('main.HOME') }}</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.knowledge-core.index') }}">{{ __('knowledge_core.KNOWLEDGE_CORE_PAGE.LIST') }}</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.news.index') }}">{{ __('news.NEWS_PAGE.LIST') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ __('knowledge_core.KNOWLEDGE_CORE_PAGE.VIEW', ['id' => $knowledgeCore->id]) }}
+                                {{ __('news.NEWS_PAGE.VIEW', ['id' => $news->id]) }}
                             </li>
                         </ol>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="mb-0">{{ __('knowledge_core.KNOWLEDGE_CORE_PAGE.VIEW', ['id' => $knowledgeCore->id]) }}</h3>
+                        <h3 class="mb-0">{{ __('news.NEWS_PAGE.VIEW', ['id' => $news->id]) }}</h3>
                     </div>
                 </div>
                 <!--end::Row-->
@@ -39,13 +46,13 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="d-inline-flex gap-1">
-                                <a class="btn btn-primary" href="{{ route('admin.knowledge-core.index') }}" role="button">
+                                <a class="btn btn-primary" href="{{ route('admin.news.index') }}" role="button">
                                     <i class="bi bi-arrow-90deg-left"></i> {{ __('main.BUTTON_BACK') }}
                                 </a>
-                                <a class="btn btn-success" href="{{ route('admin.knowledge-core.edit', $knowledgeCore->id) }}" role="button">
+                                <a class="btn btn-success" href="{{ route('admin.news.edit', $news->id) }}" role="button">
                                     <i class="bi bi-pen"></i> {{ __('main.BUTTON_EDIT') }}
                                 </a>
-                                <form action="{{ route('admin.knowledge-core.destroy', $knowledgeCore->id) }}" method="POST">
+                                <form action="{{ route('admin.news.destroy', $news->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> {{ __('main.BUTTON_DELETE') }}</button>
@@ -56,43 +63,31 @@
 
                         <!-- Блок флэш сообщений -->
                         <div class="card-body">
-                            @include('admin.knowledge-core.flash-message')
+                            @include('admin.news.flash-message')
                         </div>
 
                         <div class="card-body">
                             <table class="table table-bordered table-striped">
                                 <tbody>
                                     <tr>
-                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ID') }}</b></td>
-                                        <td>{{ $knowledgeCore->id }}</td>
+                                        <td><b>{{ __('news.NEWS_MODEL.ID') }}</b></td>
+                                        <td>{{ $news->id }}</td>
                                     </tr>
                                     <tr>
-                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.DESCRIPTION') }}</b></td>
-                                        <td>{{ $knowledgeCore->description }}</td>
+                                        <td><b>{{ __('news.NEWS_MODEL.NAME') }}</b></td>
+                                        <td>{{ $news->name }}</td>
                                     </tr>
                                     <tr>
-                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.PHONE') }}</b></td>
-                                        <td>{{ $knowledgeCore->phone }}</td>
+                                        <td><b>{{ __('news.NEWS_MODEL.STATUS') }}</b></td>
+                                        <td>{{ News::getStatusName($news->status) }}</td>
                                     </tr>
                                     <tr>
-                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.EMAIL') }}</b></td>
-                                        <td>{{ $knowledgeCore->email }}</td>
+                                        <td><b>{{ __('news.NEWS_MODEL.DATE') }}</b></td>
+                                        <td>{{ Carbon::parse($news->date)->format('d.m.Y H:i') }}</td>
                                     </tr>
                                     <tr>
-                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ADDRESS') }}</b></td>
-                                        <td>{{ $knowledgeCore->address }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.REFERENCES') }}</b></td>
-                                        <td>{{ $knowledgeCore->references }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.LAB_LINK') }}</b></td>
-                                        <td>{{ $knowledgeCore->lab_link }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.GITHUB_LINK') }}</b></td>
-                                        <td>{{ $knowledgeCore->github_link }}</td>
+                                        <td><b>{{ __('news.NEWS_MODEL.DESCRIPTION') }}</b></td>
+                                        <td>{{ $news->description }}</td>
                                     </tr>
                                 </tbody>
                             </table>
