@@ -34,8 +34,8 @@
                         <li class="nav-item"> <a href="{{ route('admin.news.index') }}" class="nav-link"> <i class="nav-icon bi bi-2-circle"></i>
                                 <p>{{ __('news.NEWS_PAGE.LIST') }}</p>
                             </a> </li>
-                        <li class="nav-item"> <a href="#" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
-                                <p>Dashboard v3</p>
+                        <li class="nav-item"> <a href="{{ route('admin.developments.index') }}" class="nav-link"> <i class="nav-icon bi bi-3-circle"></i>
+                                <p>{{ __('developments.DEVELOPMENTS_PAGE.LIST') }}</p>
                             </a> </li>
                     </ul>
                 </li>

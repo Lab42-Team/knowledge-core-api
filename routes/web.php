@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\KnowledgeCoreController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\DevelopmentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::middleware(['set_locale'])->group(function() {
         Route::name('admin.')->group(function () {
             Route::resource('knowledge-core', KnowledgeCoreController::class);
             Route::resource('news', NewsController::class);
+            Route::resource('developments', DevelopmentsController::class);
         });
     });
 });

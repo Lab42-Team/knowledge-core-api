@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="date" class="form-label">{{ __('news.NEWS_MODEL.DATE') }}</label>
-                                    <input type="text" id="date" name="date" class="form-control" value="{{ $data_now }}">
+                                    <input type="text" id="date" name="date" class="form-control">
                                     @error('date')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -101,6 +101,7 @@
         if (locale == 'EN') {
             new AirDatepicker('#date', {
                 timepicker: true,
+                selectedDates: [new Date()],
                 locale: {
                     days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
                     daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -117,6 +118,7 @@
         } else {
             new AirDatepicker('#date', {
                 timepicker: true,
+                selectedDates: [new Date()],
             });
         }
     </script>

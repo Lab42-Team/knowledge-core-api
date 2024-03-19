@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\News;
 use Carbon\Carbon;
 
 ?>
@@ -20,14 +19,14 @@ use Carbon\Carbon;
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('main.HOME') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ __('news.NEWS_PAGE.LIST') }}
+                                {{ __('developments.DEVELOPMENTS_PAGE.LIST') }}
                             </li>
                         </ol>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="mb-0">{{ __('news.NEWS_PAGE.LIST') }}</h3>
+                        <h3 class="mb-0">{{ __('developments.DEVELOPMENTS_PAGE.LIST') }}</h3>
                     </div>
                 </div>
                 <!--end::Row-->
@@ -44,7 +43,7 @@ use Carbon\Carbon;
                     <div class="card mb-4">
                         <div class="card-header">
                             <div class="d-inline-flex gap-1">
-                                <a class="btn btn-primary" href="{{ route('admin.news.create') }}" role="button">
+                                <a class="btn btn-primary" href="{{ route('admin.developments.create') }}" role="button">
                                     <i class="bi bi-plus-lg"></i> {{ __('main.BUTTON_ADD') }}
                                 </a>
                             </div>
@@ -53,31 +52,49 @@ use Carbon\Carbon;
 
                         <!-- Блок флэш сообщений -->
                         <div class="card-body">
-                            @include('admin.news.flash-message')
+                            @include('admin.developments.flash-message')
                         </div>
 
                         <div class="card-body">
                             <table class="table table-bordered table-striped">
                                 <thead class="table-primary">
                                 <tr>
-                                    <th>{{ __('news.NEWS_MODEL.ID') }}</th>
-                                    <th>{{ __('news.NEWS_MODEL.NAME') }}</th>
-                                    <th>{{ __('news.NEWS_MODEL.STATUS') }}</th>
-                                    <th>{{ __('news.NEWS_MODEL.DATE') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.ID') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.NAME') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.DESCRIPTION') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.YEAR') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.AUTHORS') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.PUBLICATIONS') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.REQUIREMENTS') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.PRACTICAL_APPLICATION') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.VERSION_HISTORY') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.DEMO_VIDEOS') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.SOFTWARE_LINK') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.DOCUMENTATION_LINK') }}</th>
+                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.GITHUB_LINK') }}</th>
                                     <th colspan="3">{{ __('main.ACTIONS') }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($news as $news)
+                                @foreach($developments as $development)
                                     <tr class="align-middle">
-                                        <td>{{ $news->id }}</td>
-                                        <td>{{ $news->name }}</td>
-                                        <td>{{ News::getStatusName($news->status) }}</td>
-                                        <td>{{ Carbon::parse($news->date)->format('d.m.Y H:i') }}</td>
-                                        <td><a title="{{ __('main.BUTTON_VIEW') }}" href="{{ route('admin.news.show', $news->id) }}"><i class="bi bi-eye-fill"></i></a></td>
-                                        <td><a title="{{ __('main.BUTTON_EDIT') }}" href="{{ route('admin.news.edit', $news->id) }}"><i class="bi bi-pen-fill"></i></a></td>
+                                        <td>{{ $development->id }}</td>
+                                        <td>{{ $development->name }}</td>
+                                        <td>{{ $development->description }}</td>
+                                        <td>{{ Carbon::parse($development->year )->format('Y') }}</td>
+                                        <td>{{ $development->authors }}</td>
+                                        <td>{{ $development->publications }}</td>
+                                        <td>{{ $development->requirements }}</td>
+                                        <td>{{ $development->practical_application }}</td>
+                                        <td>{{ $development->version_history }}</td>
+                                        <td>{{ $development->demo_videos }}</td>
+                                        <td>{{ $development->software_link }}</td>
+                                        <td>{{ $development->documentation_link }}</td>
+                                        <td>{{ $development->github_link }}</td>
+                                        <td><a title="{{ __('main.BUTTON_VIEW') }}" href="{{ route('admin.developments.show', $development->id) }}"><i class="bi bi-eye-fill"></i></a></td>
+                                        <td><a title="{{ __('main.BUTTON_EDIT') }}" href="{{ route('admin.developments.edit', $development->id) }}"><i class="bi bi-pen-fill"></i></a></td>
                                         <td>
-                                            <form action="{{ route('admin.news.destroy', $news->id) }}" method="POST">
+                                            <form action="{{ route('admin.developments.destroy', $development->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="border-0 bg-transparent" title="{{ __('main.BUTTON_DELETE') }}">
