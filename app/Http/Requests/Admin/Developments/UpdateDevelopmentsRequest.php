@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\Developments;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateDevelopmentsRequest extends FormRequest
 {
@@ -24,16 +25,16 @@ class UpdateDevelopmentsRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'string|nullable',
-            'year' => 'integer|between:1990,2050|nullable',
+            'year' => 'integer|between:1900,3000|nullable',
             'authors' => 'string|nullable',
             'publications' => 'string|nullable',
             'requirements' => 'string|nullable',
             'practical_application' => 'string|nullable',
             'version_history' => 'string|nullable',
             'demo_videos' => 'string|nullable',
-            'software_link' => 'string|nullable|unique:App\Models\Developments,software_link',
-            'documentation_link' => 'string|nullable|unique:App\Models\Developments,documentation_link',
-            'github_link' => 'string|nullable|unique:App\Models\Developments,github_link',
+            'software_link' => "string|nullable|unique:developments,software_link,{$this->development->id}",
+            'documentation_link' => "string|nullable|unique:developments,documentation_link,{$this->development->id}",
+            'github_link' => "string|nullable|unique:developments,github_link,{$this->development->id}",
         ];
     }
 

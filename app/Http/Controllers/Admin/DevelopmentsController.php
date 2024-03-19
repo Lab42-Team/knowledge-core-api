@@ -33,8 +33,10 @@ class DevelopmentsController extends Controller
     public function store(StoreDevelopmentsRequest $request)
     {
         $data = $request->validated();
-        $year = $data['year'];
-        $data['year'] = $year."-01-01";
+        if (!empty($data['year'])) {
+            $year = $data['year'];
+            $data['year'] = $year."-01-01";
+        };
         $model = Developments::create($data);
         $message = __('developments.DEVELOPMENTS_MESSAGE.CREATED', ['id' => $model["id"]]);
         return redirect()->route('admin.developments.index')->with('success', $message);
@@ -62,8 +64,10 @@ class DevelopmentsController extends Controller
     public function update(UpdateDevelopmentsRequest $request, Developments $development)
     {
         $data = $request->validated();
-        $year = $data['year'];
-        $data['year'] = $year."-01-01";
+        if (!empty($data['year'])) {
+            $year = $data['year'];
+            $data['year'] = $year."-01-01";
+        };
         $development->update($data);
         $message = __('developments.DEVELOPMENTS_MESSAGE.CHANGED', ['id' => $development->id]);
         return redirect()->route('admin.developments.show', $development->id)->with('success', $message);
