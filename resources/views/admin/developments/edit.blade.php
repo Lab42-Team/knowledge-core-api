@@ -1,3 +1,9 @@
+<?php
+
+use Carbon\Carbon;
+
+?>
+
 @extends('admin.layouts.main')
 
 @section('content')
@@ -61,7 +67,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="year" class="form-label">{{ __('developments.DEVELOPMENTS_MODEL.YEAR') }}</label>
-                                    <input type="text" id="year" name="year" class="form-control" value="{{ $development->year }}">
+                                    <input type="text" id="year" name="year" class="form-control" value="{{ Carbon::parse($development->year )->format('Y') }}">
                                     @error('year')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror

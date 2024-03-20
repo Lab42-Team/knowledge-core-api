@@ -135,6 +135,7 @@
             view: 'years',
             minView: 'years',
             dateFormat: 'yyyy',
+            selectedDates: [new Date()],
         });
     </script>
 @endpush

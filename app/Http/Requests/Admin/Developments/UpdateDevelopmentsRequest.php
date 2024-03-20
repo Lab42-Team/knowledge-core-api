@@ -51,6 +51,8 @@ class UpdateDevelopmentsRequest extends FormRequest
             'software_link.unique' => __('developments.DEVELOPMENTS_ERROR_MESSAGE.SOFTWARE_LINK_UNIQUE'),
             'documentation_link.unique' => __('developments.DEVELOPMENTS_ERROR_MESSAGE.DOCUMENTATION_LINK_UNIQUE'),
             'github_link.unique' => __('developments.DEVELOPMENTS_ERROR_MESSAGE.GITHUB_LINK_UNIQUE'),
+            'year.between' => __('developments.DEVELOPMENTS_ERROR_MESSAGE.YEAR_BETWEEN'),
+            'year.integer' => __('developments.DEVELOPMENTS_ERROR_MESSAGE.YEAR_INTEGER'),
         ];
     }
 }

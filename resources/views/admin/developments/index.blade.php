@@ -61,17 +61,9 @@ use Carbon\Carbon;
                                 <tr>
                                     <th>{{ __('developments.DEVELOPMENTS_MODEL.ID') }}</th>
                                     <th>{{ __('developments.DEVELOPMENTS_MODEL.NAME') }}</th>
-                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.DESCRIPTION') }}</th>
                                     <th>{{ __('developments.DEVELOPMENTS_MODEL.YEAR') }}</th>
                                     <th>{{ __('developments.DEVELOPMENTS_MODEL.AUTHORS') }}</th>
-                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.PUBLICATIONS') }}</th>
-                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.REQUIREMENTS') }}</th>
-                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.PRACTICAL_APPLICATION') }}</th>
-                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.VERSION_HISTORY') }}</th>
-                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.DEMO_VIDEOS') }}</th>
                                     <th>{{ __('developments.DEVELOPMENTS_MODEL.SOFTWARE_LINK') }}</th>
-                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.DOCUMENTATION_LINK') }}</th>
-                                    <th>{{ __('developments.DEVELOPMENTS_MODEL.GITHUB_LINK') }}</th>
                                     <th colspan="3">{{ __('main.ACTIONS') }}</th>
                                 </tr>
                                 </thead>
@@ -80,17 +72,9 @@ use Carbon\Carbon;
                                     <tr class="align-middle">
                                         <td>{{ $development->id }}</td>
                                         <td>{{ $development->name }}</td>
-                                        <td>{{ $development->description }}</td>
                                         <td>{{ Carbon::parse($development->year )->format('Y') }}</td>
                                         <td>{{ $development->authors }}</td>
-                                        <td>{{ $development->publications }}</td>
-                                        <td>{{ $development->requirements }}</td>
-                                        <td>{{ $development->practical_application }}</td>
-                                        <td>{{ $development->version_history }}</td>
-                                        <td>{{ $development->demo_videos }}</td>
                                         <td>{{ $development->software_link }}</td>
-                                        <td>{{ $development->documentation_link }}</td>
-                                        <td>{{ $development->github_link }}</td>
                                         <td><a title="{{ __('main.BUTTON_VIEW') }}" href="{{ route('admin.developments.show', $development->id) }}"><i class="bi bi-eye-fill"></i></a></td>
                                         <td><a title="{{ __('main.BUTTON_EDIT') }}" href="{{ route('admin.developments.edit', $development->id) }}"><i class="bi bi-pen-fill"></i></a></td>
                                         <td>

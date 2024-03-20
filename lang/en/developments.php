@@ -40,6 +40,8 @@ return [
         'SOFTWARE_LINK_UNIQUE' => 'The software link has already been taken.',
         'DOCUMENTATION_LINK_UNIQUE' => 'The documentation link has already been taken.',
         'GITHUB_LINK_UNIQUE' => 'The GitHub link has already been taken.',
+        'YEAR_BETWEEN' => 'The year field must be between 1900 and 3000.',
+        'YEAR_INTEGER' => 'The year field must be an integer.',
     ],
 ];
 
