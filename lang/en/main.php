@@ -19,4 +19,6 @@ return [
     'BUTTON_EDIT' => 'Edit',
     'BUTTON_UPDATE' => 'Update',
     'BUTTON_DELETE' => 'Delete',
+
+    'NO_DATA' => 'No data',
 ];

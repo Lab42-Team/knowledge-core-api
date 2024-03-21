@@ -78,47 +78,91 @@ use Carbon\Carbon;
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.DESCRIPTION') }}</b></td>
-                                        <td>{{ $development->description }}</td>
+                                        @if (!empty($development->description))
+                                            <td>{{ $development->description }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.YEAR') }}</b></td>
-                                        <td>{{ Carbon::parse($development->year )->format('Y') }}</td>
+                                        @if (!empty($development->year))
+                                            <td>{{ Carbon::parse($development->year )->format('Y') }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.AUTHORS') }}</b></td>
-                                        <td>{{ $development->authors }}</td>
+                                        @if (!empty($development->authors))
+                                            <td>{{$development->authors}}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.PUBLICATIONS') }}</b></td>
-                                        <td>{{ $development->publications }}</td>
+                                        @if (!empty($development->publications))
+                                            <td>{{$development->publications}}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.REQUIREMENTS') }}</b></td>
-                                        <td>{{ $development->requirements }}</td>
+                                        @if (!empty($development->requirements))
+                                            <td>{{$development->requirements}}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.PRACTICAL_APPLICATION') }}</b></td>
-                                        <td>{{ $development->practical_application }}</td>
+                                        @if (!empty($development->practical_application))
+                                            <td>{{$development->practical_application}}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.VERSION_HISTORY') }}</b></td>
-                                        <td>{{ $development->version_history }}</td>
+                                        @if (!empty($development->version_history))
+                                            <td>{{$development->version_history}}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.DEMO_VIDEOS') }}</b></td>
-                                        <td>{{ $development->demo_videos }}</td>
+                                        @if (!empty($development->demo_videos))
+                                            <td>{{$development->demo_videos}}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.SOFTWARE_LINK') }}</b></td>
-                                        <td>{{ $development->software_link }}</td>
+                                        @if (!empty($development->software_link))
+                                            <td>{{$development->software_link}}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.DOCUMENTATION_LINK') }}</b></td>
-                                        <td>{{ $development->documentation_link }}</td>
+                                        @if (!empty($development->documentation_link))
+                                            <td>{{$development->documentation_link}}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('developments.DEVELOPMENTS_MODEL.GITHUB_LINK') }}</b></td>
-                                        <td>{{ $development->github_link }}</td>
+                                        @if (!empty($development->github_link))
+                                            <td>{{$development->github_link}}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                 </tbody>
                             </table>

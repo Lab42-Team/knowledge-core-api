@@ -72,9 +72,25 @@ use Carbon\Carbon;
                                     <tr class="align-middle">
                                         <td>{{ $development->id }}</td>
                                         <td>{{ $development->name }}</td>
-                                        <td>{{ Carbon::parse($development->year )->format('Y') }}</td>
-                                        <td>{{ $development->authors }}</td>
-                                        <td>{{ $development->software_link }}</td>
+
+                                        @if (!empty($development->year))
+                                            <td>{{ Carbon::parse($development->year )->format('Y') }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
+
+                                        @if (!empty($development->authors))
+                                            <td>{{$development->authors}}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
+
+                                        @if (!empty($development->software_link))
+                                            <td>{{ $development->software_link }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
+
                                         <td><a title="{{ __('main.BUTTON_VIEW') }}" href="{{ route('admin.developments.show', $development->id) }}"><i class="bi bi-eye-fill"></i></a></td>
                                         <td><a title="{{ __('main.BUTTON_EDIT') }}" href="{{ route('admin.developments.edit', $development->id) }}"><i class="bi bi-pen-fill"></i></a></td>
                                         <td>
