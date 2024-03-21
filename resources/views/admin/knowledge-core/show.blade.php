@@ -68,31 +68,59 @@
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.DESCRIPTION') }}</b></td>
-                                        <td>{{ $knowledgeCore->description }}</td>
+                                        @if (!empty($knowledgeCore->description))
+                                            <td>{{ $knowledgeCore->description }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.PHONE') }}</b></td>
-                                        <td>{{ $knowledgeCore->phone }}</td>
+                                        @if (!empty($knowledgeCore->phone))
+                                            <td>{{ $knowledgeCore->phone }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.EMAIL') }}</b></td>
-                                        <td>{{ $knowledgeCore->email }}</td>
+                                        @if (!empty($knowledgeCore->email))
+                                            <td>{{ $knowledgeCore->email }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ADDRESS') }}</b></td>
-                                        <td>{{ $knowledgeCore->address }}</td>
+                                        @if (!empty($knowledgeCore->address))
+                                            <td>{{ $knowledgeCore->address }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.REFERENCES') }}</b></td>
-                                        <td>{{ $knowledgeCore->references }}</td>
+                                        @if (!empty($knowledgeCore->references))
+                                            <td>{{ $knowledgeCore->references }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.LAB_LINK') }}</b></td>
-                                        <td>{{ $knowledgeCore->lab_link }}</td>
+                                        @if (!empty($knowledgeCore->lab_link))
+                                            <td>{{ $knowledgeCore->lab_link }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.GITHUB_LINK') }}</b></td>
-                                        <td>{{ $knowledgeCore->github_link }}</td>
+                                        @if (!empty($knowledgeCore->github_link))
+                                            <td>{{ $knowledgeCore->github_link }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                 </tbody>
                             </table>

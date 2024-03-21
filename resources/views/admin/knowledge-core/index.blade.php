@@ -68,13 +68,48 @@
                                 @foreach($knowledge_cores as $knowledge_core)
                                     <tr class="align-middle">
                                         <td>{{ $knowledge_core->id }}</td>
-                                        <td>{{ $knowledge_core->description }}</td>
-                                        <td>{{ $knowledge_core->phone }}</td>
-                                        <td>{{ $knowledge_core->email }}</td>
-                                        <td>{{ $knowledge_core->address }}</td>
-                                        <td>{{ $knowledge_core->references }}</td>
-                                        <td>{{ $knowledge_core->lab_link }}</td>
-                                        <td>{{ $knowledge_core->github_link }}</td>
+
+                                        @if (!empty($knowledge_core->description))
+                                            <td>{{ $knowledge_core->description }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
+
+                                        @if (!empty($knowledge_core->phone))
+                                            <td>{{ $knowledge_core->phone }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
+
+                                        @if (!empty($knowledge_core->email))
+                                            <td>{{ $knowledge_core->email }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
+
+                                        @if (!empty($knowledge_core->address))
+                                            <td>{{ $knowledge_core->address }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
+
+                                        @if (!empty($knowledge_core->references))
+                                            <td>{{ $knowledge_core->references }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
+
+                                        @if (!empty($knowledge_core->lab_link))
+                                            <td>{{ $knowledge_core->lab_link }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
+
+                                        @if (!empty($knowledge_core->github_link))
+                                            <td>{{ $knowledge_core->github_link }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                         <td><a title="{{ __('main.BUTTON_VIEW') }}" href="{{ route('admin.knowledge-core.show', $knowledge_core->id) }}"><i class="bi bi-eye-fill"></i></a></td>
                                         <td><a title="{{ __('main.BUTTON_EDIT') }}" href="{{ route('admin.knowledge-core.edit', $knowledge_core->id) }}"><i class="bi bi-pen-fill"></i></a></td>
                                         <td>
