@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\News\StoreNewsRequest;
 use App\Http\Requests\Admin\News\UpdateNewsRequest;
 use App\Models\News;
-use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -45,8 +44,8 @@ class NewsController extends Controller
     public function store(StoreNewsRequest $request)
     {
         $model = News::create($request->validated());
-        $message = __('news.NEWS_MESSAGE.CREATED', ['id' => $model["id"]]);
-        return redirect()->route('admin.news.index')->with('success', $message);
+        $message = __('news.NEWS_MESSAGE.CREATED', ['id' => $model->id]);
+        return redirect()->route('admin.news.show', $model->id)->with('success', $message);
     }
 
     /**

@@ -75,5 +75,4 @@ class Developments extends Model
         'documentation_link',
         'github_link',
     ];
-
 }
