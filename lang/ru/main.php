@@ -19,4 +19,6 @@ return [
     'BUTTON_EDIT' => 'Редактировать',
     'BUTTON_UPDATE' => 'Обновить',
     'BUTTON_DELETE' => 'Удалить',
+
+    'NO_DATA' => 'Нет данных',
 ];

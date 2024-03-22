@@ -62,7 +62,6 @@ use Carbon\Carbon;
                                 <tr>
                                     <th>{{ __('news.NEWS_MODEL.ID') }}</th>
                                     <th>{{ __('news.NEWS_MODEL.NAME') }}</th>
-                                    <th>{{ __('news.NEWS_MODEL.DESCRIPTION') }}</th>
                                     <th>{{ __('news.NEWS_MODEL.STATUS') }}</th>
                                     <th>{{ __('news.NEWS_MODEL.DATE') }}</th>
                                     <th colspan="3">{{ __('main.ACTIONS') }}</th>

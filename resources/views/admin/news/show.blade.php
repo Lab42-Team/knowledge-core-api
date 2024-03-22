@@ -87,7 +87,11 @@ use Carbon\Carbon;
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('news.NEWS_MODEL.DESCRIPTION') }}</b></td>
-                                        <td>{{ $news->description }}</td>
+                                        @if (!empty($news->description))
+                                            <td>{{ $news->description }}</td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
                                     </tr>
                                 </tbody>
                             </table>
