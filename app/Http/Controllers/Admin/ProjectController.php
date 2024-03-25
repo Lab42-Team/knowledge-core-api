@@ -6,11 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Project\StoreProjectRequest;
 use App\Http\Requests\Admin\Project\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function index()
     {
@@ -20,6 +26,8 @@ class ProjectController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function create()
     {
@@ -30,16 +38,22 @@ class ProjectController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param StoreProjectRequest $request
+     * @return RedirectResponse
      */
     public function store(StoreProjectRequest $request)
     {
         $model = Project::create($request->validated());
         $message = __('project.PROJECT_MESSAGE.CREATED', ['id' => $model->id]);
-        return redirect()->route('admin.project.index')->with('success', $message);
+        return redirect()->route('admin.project.show', $model->id)->with('success', $message);
     }
 
     /**
      * Display the specified resource.
+     *
+     * @param Project $project
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function show(Project $project)
     {
@@ -48,6 +62,9 @@ class ProjectController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param Project $project
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function edit(Project $project)
     {
@@ -58,6 +75,10 @@ class ProjectController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param UpdateProjectRequest $request
+     * @param Project $project
+     * @return RedirectResponse
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
@@ -68,6 +89,9 @@ class ProjectController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param Project $project
+     * @return RedirectResponse
      */
     public function destroy(Project $project)
     {
