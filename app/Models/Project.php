@@ -62,7 +62,6 @@ class Project extends Model
         'name',
         'description',
         'type',
-        'authors',
         'status',
     ];
 

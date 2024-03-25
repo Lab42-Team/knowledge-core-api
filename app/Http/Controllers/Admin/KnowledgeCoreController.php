@@ -40,7 +40,7 @@ class KnowledgeCoreController extends Controller
     {
         $model = KnowledgeCore::create($request->validated());
         $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CREATED', ['id' => $model->id]);
-        return redirect()->route('admin.knowledge-core.index')->with('success', $message);
+        return redirect()->route('admin.knowledge-core.show', $model->id)->with('success', $message);
     }
 
     /**
