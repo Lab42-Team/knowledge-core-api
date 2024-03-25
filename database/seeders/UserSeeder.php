@@ -11,11 +11,11 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        // Создание тестового администратора
+        // Создание администратора по умолчанию
         DB::table('users')->insert([
-            'name' => 'test-admin',
-            'email' => 'test-admin@avia-back.ru',
-            'password' => bcrypt('altair-admin'),
+            'name' => 'admin',
+            'email' => 'admin@knowledge-core.ru',
+            'password' => bcrypt('admin'),
             'role' => User::ADMIN_ROLE,
             'status' => User::ACTIVE_STATUS,
             'full_name' => 'Тестовый администратор',
