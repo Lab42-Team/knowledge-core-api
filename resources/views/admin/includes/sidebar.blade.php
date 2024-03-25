@@ -37,6 +37,9 @@
                         <li class="nav-item"> <a href="{{ route('admin.developments.index') }}" class="nav-link"> <i class="nav-icon bi bi-3-circle"></i>
                                 <p>{{ __('developments.DEVELOPMENTS_PAGE.LIST') }}</p>
                             </a> </li>
+                        <li class="nav-item"> <a href="{{ route('admin.project.index') }}" class="nav-link"> <i class="nav-icon bi bi-4-circle"></i>
+                                <p>{{ __('project.PROJECT_PAGE.LIST') }}</p>
+                            </a> </li>
                     </ul>
                 </li>
             </ul>
