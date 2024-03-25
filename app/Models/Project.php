@@ -21,6 +21,7 @@ use Illuminate\Support\Arr;
  * @property Carbon|null $updated_at
  * @property-read Collection<int, ProjectUser> $project_users
  * @property-read int|null $project_users_count
+ * @property-read User $users
  * @method static Builder|Project newModelQuery()
  * @method static Builder|Project newQuery()
  * @method static Builder|Project query()
@@ -68,6 +69,15 @@ class Project extends Model
     public function project_users()
     {
         return $this->hasMany(ProjectUser::class, 'project_id');
+    }
+
+    /**
+     * Получить всех пользователей (авторов) проекта.
+     */
+    public function users()
+    {
+        return $this->belongsToMany(ProjectUser::class, 'project_user',
+            'project_id', 'user_id');
     }
 
     /**

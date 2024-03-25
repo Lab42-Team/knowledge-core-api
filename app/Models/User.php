@@ -28,6 +28,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $updated_at
  * @property-read Collection<int, ProjectUser> $project_users
  * @property-read int|null $project_users_count
+ * @property-read Project $projects
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
  * @method static Builder|User query()
@@ -102,5 +103,14 @@ class User extends Authenticatable
     public function project_users()
     {
         return $this->hasMany(ProjectUser::class, 'user_id');
+    }
+
+    /**
+     * Получить все проекты пользователя.
+     */
+    public function projects()
+    {
+        return $this->belongsToMany(ProjectUser::class, 'project_user',
+            'user_id', 'project_id');
     }
 }
