@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Arr;
 
 /**
  * App\Models\Project
@@ -61,12 +62,60 @@ class Project extends Model
         'name',
         'description',
         'type',
-        'authors',
         'status',
     ];
 
     public function project_users()
     {
         return $this->hasMany(ProjectUser::class, 'project_id');
+    }
+
+    /**
+     * Получение списка типов.
+     *
+     * @return string[]
+     */
+    public static function getTypeArray()
+    {
+        return [
+            self::PUBLIC_TYPE => __('project.PROJECT_TYPE.PUBLIC_TYPE'),
+            self::PRIVATE_TYPE => __('project.PROJECT_TYPE.PRIVATE_TYPE'),
+        ];
+    }
+
+    /**
+     * Получение названия типа.
+     *
+     * @param $type
+     * @return array|\ArrayAccess|mixed
+     */
+    public static function getTypeName($type)
+    {
+        return Arr::get(self::getTypeArray(), $type);
+    }
+
+    /**
+     * Получение списка статусов.
+     *
+     * @return string[]
+     */
+    public static function getStatusArray()
+    {
+        return [
+            self::UNDER_EDITING => __('project.PROJECT_STATUS.UNDER_EDITING'),
+            self::READY_TO_USE => __('project.PROJECT_STATUS.READY_TO_USE'),
+            self::OUTDATED => __('project.PROJECT_STATUS.OUTDATED'),
+        ];
+    }
+
+    /**
+     * Получение названия статуса.
+     *
+     * @param $status
+     * @return array|\ArrayAccess|mixed
+     */
+    public static function getStatusName($status)
+    {
+        return Arr::get(self::getStatusArray(), $status);
     }
 }
