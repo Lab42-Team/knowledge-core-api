@@ -56,7 +56,6 @@ class User extends Authenticatable
     // Роли пользователей
     const ADMIN_ROLE = 0; // Администратор (может все в рамках системы)
     const USER_ROLE = 1;  // Обычный пользователь (зарегистрированный пользователь, которому доступны функции платформы)
-    const GUEST_ROLE = 2; // Гость (ничего не может, только видит что-то рекламное или информационное, а также видит открытые проекты)
 
     // Статусы пользователей
     const ACTIVE_STATUS = 0;       // Авторизованный пользователь, который может взаимодействовать с системой
@@ -126,7 +125,6 @@ class User extends Authenticatable
         return [
             self::ADMIN_ROLE => __('user.USER_ROLE.ADMIN'),
             self::USER_ROLE => __('user.USER_ROLE.USER'),
-            self::GUEST_ROLE => __('user.USER_ROLE.GUEST'),
         ];
     }
 

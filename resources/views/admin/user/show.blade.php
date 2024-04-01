@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Carbon\Carbon;
 
 ?>
 
@@ -77,10 +78,6 @@ use App\Models\User;
                                         <td>{{ $user->name }}</td>
                                     </tr>
                                     <tr>
-                                        <td><b>{{ __('user.USER_MODEL.PASSWORD') }}</b></td>
-                                        <td>{{ $user->password }}</td>
-                                    </tr>
-                                    <tr>
                                         <td><b>{{ __('user.USER_MODEL.EMAIL') }}</b></td>
                                         <td>{{ $user->email }}</td>
                                     </tr>
@@ -102,7 +99,7 @@ use App\Models\User;
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('user.USER_MODEL.LAST_LOGIN_DATE') }}</b></td>
-                                        <td>{{ $user->last_login_date }}</td>
+                                        <td>{{ Carbon::parse($user->last_login_date)->format('d.m.Y H:i') }}</td>
                                     </tr>
                                     <tr>
                                         <td><b>{{ __('user.USER_MODEL.LOGIN_IP') }}</b></td>

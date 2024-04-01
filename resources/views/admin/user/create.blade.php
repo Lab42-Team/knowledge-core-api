@@ -56,7 +56,10 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">{{ __('user.USER_MODEL.PASSWORD') }}</label>
-                                    <input type="password" id="password" name="password" class="form-control" value="{{ old('password') }}">
+                                    <div class="input-group">
+                                        <input type="password" id="password" name="password" class="form-control" value="{{ old('password') }}" aria-describedby="basic-addon">
+                                        <span class="input-group-text" id="basic-addon"><i class="bi bi-eye-slash" id="togglePassword"></i></span>
+                                    </div>
                                     @error('password')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -115,3 +118,19 @@
     </main>
     <!--end::App Main-->
 @endsection
+
+@push('scripts')
+    <script>
+        const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+
+        togglePassword.addEventListener("click", function () {
+            // переключаем тип
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+
+            // переключаем значок
+            this.classList.toggle("bi-eye");
+        });
+    </script>
+@endpush
