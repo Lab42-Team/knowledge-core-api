@@ -9,6 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Arr;
 
 /**
  * App\Models\User
@@ -55,7 +56,6 @@ class User extends Authenticatable
     // Роли пользователей
     const ADMIN_ROLE = 0; // Администратор (может все в рамках системы)
     const USER_ROLE = 1;  // Обычный пользователь (зарегистрированный пользователь, которому доступны функции платформы)
-    const GUEST_ROLE = 2; // Гость (ничего не может, только видит что-то рекламное или информационное, а также видит открытые проекты)
 
     // Статусы пользователей
     const ACTIVE_STATUS = 0;       // Авторизованный пользователь, который может взаимодействовать с системой
@@ -112,5 +112,55 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(ProjectUser::class, 'project_user',
             'user_id', 'project_id');
+    }
+
+
+    /**
+     * Получение списка ролей.
+     *
+     * @return string[]
+     */
+    public static function getRoleArray()
+    {
+        return [
+            self::ADMIN_ROLE => __('user.USER_ROLE.ADMIN'),
+            self::USER_ROLE => __('user.USER_ROLE.USER'),
+        ];
+    }
+
+    /**
+     * Получение названия роли.
+     *
+     * @param $status
+     * @return array|\ArrayAccess|mixed
+     */
+    public static function getRoleName($role)
+    {
+        return Arr::get(self::getRoleArray(), $role);
+    }
+
+    /**
+     * Получение списка статусов.
+     *
+     * @return string[]
+     */
+    public static function getStatusArray()
+    {
+        return [
+            self::ACTIVE_STATUS => __('user.USER_STATUS.ACTIVE'),
+            self::INACTIVE_STATUS => __('user.USER_STATUS.INACTIVE'),
+            self::NOT_VERIFIED_STATUS => __('user.USER_STATUS.NOT_VERIFIED'),
+        ];
+    }
+
+    /**
+     * Получение названия статуса.
+     *
+     * @param $status
+     * @return array|\ArrayAccess|mixed
+     */
+    public static function getStatusName($status)
+    {
+        return Arr::get(self::getStatusArray(), $status);
     }
 }
