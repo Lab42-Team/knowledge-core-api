@@ -22,6 +22,12 @@ return [
         'LOGIN_IP' => 'Login ip',
     ],
 
+    //кнопки на форме
+    'BUTTON_PASSWORD' => [
+        'SHOW' => 'Show password',
+        'HIDE' => 'Hide password',
+    ],
+
     // Константы ролей
     'USER_ROLE' => [
         'ADMIN' => 'Admin',
