@@ -65,7 +65,7 @@ use App\Models\User;
                                     <label for="password" class="form-label">{{ __('user.USER_MODEL.PASSWORD') }}</label>
                                     <div class="input-group">
                                         <input type="password" id="password" name="password" class="form-control" value="{{ $user->password }}" aria-describedby="basic-addon">
-                                        <span class="input-group-text" id="basic-addon"><i class="bi bi-eye-slash" id="togglePassword" title="{{ __('user.BUTTON_PASSWORD.HIDE') }}"></i></span>
+                                        <span class="input-group-text" id="basic-addon"><i class="bi bi-eye-slash" id="togglePassword" title="{{ __('user.BUTTON_PASSWORD.SHOW') }}"></i></span>
                                     </div>
                                     @error('password')
                                         <div class="text-danger">{{ $message }}</div>
@@ -139,7 +139,7 @@ use App\Models\User;
             this.classList.toggle("bi-eye");
 
             // переключаем название кнопки
-            const title = togglePassword.getAttribute("title") === "{{ __('user.BUTTON_PASSWORD.HIDE') }}" ? "{{ __('user.BUTTON_PASSWORD.SHOW') }}" : "{{ __('user.BUTTON_PASSWORD.HIDE') }}";
+            const title = togglePassword.getAttribute("title") === "{{ __('user.BUTTON_PASSWORD.SHOW') }}" ? "{{ __('user.BUTTON_PASSWORD.HIDE') }}" : "{{ __('user.BUTTON_PASSWORD.SHOW') }}";
             this.setAttribute("title", title);
         });
     </script>
