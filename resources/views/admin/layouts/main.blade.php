@@ -28,6 +28,12 @@
     <!--begin::Air Datepicker Plugin-->
     <link rel="stylesheet" href="{{ asset('/css/air-datepicker.css') }}">
     <!--end::Air Datepicker Plugin-->
+
+
+
+
+    <link rel="stylesheet" href="{{ asset('/css/select2.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/select2-bootstrap-5-theme.min.css') }}">
 </head>
 <!--end::Head-->
 
@@ -87,6 +93,13 @@
 <!--end::App Wrapper-->
 
 <!--begin::Script-->
+
+
+<!-- Подключение jQuery)-->
+<script src="{{ asset('/js/jquery-3.7.1.min.js') }}"></script>
+
+
+
 <!--begin::Third Party Plugin(OverlayScrollrsba)-->
 <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script>
 <!--end::Third Party Plugin(OverlayScrollbars)-->
@@ -132,6 +145,10 @@
 <!--begin::Air Datepicker Plugin-->
 <script src="{{ asset('/js/air-datepicker.js') }}"></script>
 <!--end::Air Datepicker Plugin-->
+
+
+
+<script src="{{ asset('/js/select2.full.min.js') }}"></script>
 
 <!--Для запуска дополнительных скриптов-->
 @stack('scripts')

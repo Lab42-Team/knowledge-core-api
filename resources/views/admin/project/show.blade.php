@@ -92,7 +92,18 @@ use App\Models\Project;
                                         <td><b>{{ __('project.PROJECT_MODEL.STATUS') }}</b></td>
                                         <td>{{ Project::getStatusName($project->status) }}</td>
                                     </tr>
-
+                                    <tr>
+                                        <td><b>{{ __('project.PROJECT_MODEL.USERS') }}</b></td>
+                                        @if (count($project->users) > 0)
+                                            <td>
+                                                @foreach($project->users as $user)
+                                                    {{ $user->name }} <br/>
+                                                @endforeach
+                                            </td>
+                                        @else
+                                            <td><p class="fst-italic text-danger">{{ __('main.NO_DATA') }}</p></td>
+                                        @endif
+                                    </tr>
                                 </tbody>
                             </table>
                         </div> <!-- /.card-body -->

@@ -89,6 +89,14 @@ use App\Models\Project;
                                         @endforeach
                                     </select>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="users" class="form-label">{{ __('project.PROJECT_MODEL.USERS') }}</label>
+                                    <select class="form-select" id="users" data-placeholder="{{ __('project.PLACEHOLDER_USERS') }}" name="users[]" multiple>
+                                        @foreach($users as $user)
+                                            <option {{ is_array($project->users->pluck('id')->toArray()) && in_array($user->id, $project->users->pluck('id')->toArray()) ? ' selected' : ''}} value="{{ $user->id }}">{{ $user->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <!--end::Body-->
                             <!--begin::Footer-->
@@ -107,3 +115,16 @@ use App\Models\Project;
     </main>
     <!--end::App Main-->
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $( '#users' ).select2( {
+                theme: "bootstrap-5",
+                width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+                placeholder: $( this ).data( 'placeholder' ),
+                closeOnSelect: false,
+            } );
+        });
+    </script>
+@endpush
