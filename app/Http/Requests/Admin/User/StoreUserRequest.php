@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin\User;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreUserRequest extends FormRequest
@@ -17,7 +18,7 @@ class StoreUserRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
@@ -25,13 +26,9 @@ class StoreUserRequest extends FormRequest
             'name' => 'required|string|max:255|unique:users,name',
             'password' => 'required|string|max:255',
             'email' => 'required|email:rfc,dns|max:255|unique:users,email',
-            //'email_verified_at',   nullable
-            //'remember_token',     nullable
             'role' => 'required|integer',
             'status' => 'required|integer',
             'full_name' => 'string|max:255|nullable',
-            //'last_login_date' => 'required|string|max:255',
-            //'login_ip' => 'required|string|max:255',
         ];
     }
 
