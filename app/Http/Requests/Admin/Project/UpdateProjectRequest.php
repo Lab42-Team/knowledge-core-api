@@ -27,6 +27,8 @@ class UpdateProjectRequest extends FormRequest
             'description' => 'string|nullable',
             'type' => 'required|integer',
             'status' => 'required|integer',
+            'users' => 'nullable|array',
+            'users.*' => 'nullable|integer|exists:users,id',
         ];
     }
 

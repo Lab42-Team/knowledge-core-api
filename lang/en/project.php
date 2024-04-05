@@ -16,7 +16,11 @@ return [
         'DESCRIPTION' => 'Description',
         'TYPE' => 'Type',
         'STATUS' => 'Status',
+        'USERS' => 'Users',
     ],
+
+    //надпись в выборе select
+    'PLACEHOLDER_USERS' => 'Choose users',
 
     // Константы типов
     'PROJECT_TYPE' => [
