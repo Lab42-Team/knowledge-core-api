@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Project\StoreProjectRequest;
 use App\Http\Requests\Admin\Project\UpdateProjectRequest;
 use App\Models\Project;
-use App\Models\ProjectUser;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -48,22 +47,10 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $data = $request->validated();
-
-        //если users выбраны
-        if (isset ($data['users'])){
-            //выделяем из формы список выбранных users
-            $users = $data['users'];
-            //удаляем их из основного массива
-            unset ($data['users']);
-        }
         $model = Project::create($data);
-
-        //если в $users есть значения
-        if (isset ($users)){
-            //добавляем $users в таблицу ProjectUser
-            $model->users()->attach($users);
-        }
-
+        // Если в users есть значения, то добавление связи пользователей с проектом (таблиа ProjectUser)
+        if (isset($data['users']))
+            $model->users()->attach($data['users']);
         $message = __('project.PROJECT_MESSAGE.CREATED', ['id' => $model->id]);
         return redirect()->route('admin.project.show', $model->id)->with('success', $message);
     }
@@ -103,26 +90,13 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
-
-        //если users выбраны
-        if (isset ($data['users'])){
-            //выделяем из формы список выбранных users
-            $users = $data['users'];
-            //удаляем их из основного массива
-            unset ($data['users']);
-        }
-
         $project->update($data);
-
-        //если в $users есть значения
-        if (isset ($users)){
-            //добавляем $users в таблицу ProjectUser
-            $project->users()->sync($users);
-        } else {
-            //удаляем связку в таблици ProjectUser
+        // Если в users есть значения, то добавление связи пользователей с проектом (таблиа ProjectUser)
+        if (isset($data['users']))
+            $project->users()->sync($data['users']);
+        else
+            // В противном случае, удаление связки из таблицы ProjectUser
             $project->users()->detach();
-        }
-
         $message = __('project.PROJECT_MESSAGE.CHANGED', ['id' => $project->id]);
         return redirect()->route('admin.project.show', $project->id)->with('success', $message);
     }

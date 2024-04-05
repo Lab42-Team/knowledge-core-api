@@ -7,11 +7,17 @@ use App\Http\Requests\Admin\User\StoreUserRequest;
 use App\Http\Requests\Admin\User\UpdateUserRequest;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function index()
     {
@@ -21,6 +27,8 @@ class UserController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function create()
     {
@@ -31,14 +39,17 @@ class UserController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param StoreUserRequest $request
+     * @return RedirectResponse
      */
     public function store(StoreUserRequest $request)
     {
         $data = $request->validated();
-        //добавляем недостающие поля
+        // Добавление данных о дате и ip-адресе
         $data['last_login_date'] = Carbon::now();
         $data['login_ip'] = '127.0.0.1';
-        //шифруем пароль
+        // Хеширование пароля
         $data['password'] = bcrypt($data['password']);
         $model = User::create($data);
         $message = __('user.USER_MESSAGE.CREATED', ['id' => $model->id]);
@@ -47,6 +58,9 @@ class UserController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @param User $user
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function show(User $user)
     {
@@ -55,6 +69,9 @@ class UserController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param User $user
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
     public function edit(User $user)
     {
@@ -65,15 +82,17 @@ class UserController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param UpdateUserRequest $request
+     * @param User $user
+     * @return RedirectResponse
      */
     public function update(UpdateUserRequest $request, User $user)
     {
         $data = $request->validated();
-        //проверяем изменился ли пароль
-        if ($data['password'] != $user->password){
-            //если изменился шифруем новый
+        // Если поменялся пароль, то хешируем его
+        if ($data['password'] != $user->password)
             $data['password'] = bcrypt($data['password']);
-        }
         $user->update($data);
         $message = __('user.USER_MESSAGE.CHANGED', ['id' => $user->id]);
         return redirect()->route('admin.user.show', $user->id)->with('success', $message);
@@ -81,6 +100,9 @@ class UserController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param User $user
+     * @return RedirectResponse
      */
     public function destroy(User $user)
     {
