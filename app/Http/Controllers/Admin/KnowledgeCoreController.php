@@ -19,7 +19,10 @@ class KnowledgeCoreController extends Controller
     public function index()
     {
         $knowledge_cores = KnowledgeCore::all();
-        return view('admin.knowledge-core.index', compact('knowledge_cores'));
+        if (count($knowledge_cores) == 0)
+            return view('admin.knowledge-core.index', compact('knowledge_cores'));
+        else
+            return redirect()->route('admin.knowledge-core.show', $knowledge_cores[0]->id);
     }
 
     /**
