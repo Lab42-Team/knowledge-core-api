@@ -60,7 +60,7 @@ class KnowledgeCoreController extends Controller
      */
     public function show(KnowledgeCore $knowledgeCore)
     {
-        //
+        abort('404');
     }
 
     /**
