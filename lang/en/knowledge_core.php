@@ -9,6 +9,9 @@ return [
         'EDIT' => 'Editing general information: :id',
     ],
 
+    //надписи на форме
+    'KNOWLEDGE_CORE_TEXT' => 'General information is missing, please fill it out',
+
     // Форма Knowledge core
     'KNOWLEDGE_CORE_MODEL' => [
         'ID' => 'ID',
@@ -25,9 +28,9 @@ return [
 
     // Текст флэш сообщений Knowledge core
     'KNOWLEDGE_CORE_MESSAGE' => [
-        'CREATED' => 'Record № :id has been created successfully!',
-        'CHANGED' => 'Record № :id successfully changed!',
-        'DELETED' => 'Record № :id successfully deleted!',
+        'CREATED' => 'General information has been created successfully!',
+        'CHANGED' => 'General information successfully changed!',
+        'DELETED' => 'General information successfully deleted!',
     ],
 
     // Текст сообщений ошибок заполнения полей формы Knowledge core
