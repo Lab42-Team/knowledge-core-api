@@ -61,15 +61,11 @@
                         </div>
 
                         @if($knowledge_core == false)
-                            <p class="fs-3 text-center text-danger">{{ __('knowledge_core.KNOWLEDGE_CORE_TEXT') }}</p>
+                            <p class="fs-4 text-center text-danger">{{ __('knowledge_core.KNOWLEDGE_CORE_TEXT') }}</p>
                         @else
                             <div class="card-body">
                                 <table class="table table-bordered table-striped">
                                     <tbody>
-                                    <tr>
-                                        <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.ID') }}</b></td>
-                                        <td>{{ $knowledge_core->id }}</td>
-                                    </tr>
                                     <tr>
                                         <td><b>{{ __('knowledge_core.KNOWLEDGE_CORE_MODEL.DESCRIPTION') }}</b></td>
                                         @if (!empty($knowledge_core->description))

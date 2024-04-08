@@ -10,7 +10,7 @@ return [
     ],
 
     //надписи на форме
-    'KNOWLEDGE_CORE_TEXT' => 'Основная информация отсутствует, заполните ее пожалуйста',
+    'KNOWLEDGE_CORE_TEXT' => 'Основная информация отсутствует',
 
     // Форма Knowledge core
     'KNOWLEDGE_CORE_MODEL' => [
