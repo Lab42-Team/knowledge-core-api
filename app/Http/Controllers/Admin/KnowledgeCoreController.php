@@ -18,17 +18,8 @@ class KnowledgeCoreController extends Controller
      */
     public function index()
     {
-        $knowledge_cores = KnowledgeCore::all();
-        if (count($knowledge_cores) == 0){
-            $knowledge_core = false;
-            return view('admin.knowledge-core.index', compact('knowledge_core'));
-        } else {
-            $knowledge_core = $knowledge_cores[0];
-
-            return view('admin.knowledge-core.index', compact('knowledge_core'));
-
-        }
-
+        $knowledge_core = KnowledgeCore::first();
+        return view('admin.knowledge-core.index', compact('knowledge_core'));
     }
 
     /**
@@ -47,20 +38,9 @@ class KnowledgeCoreController extends Controller
      */
     public function store(StoreKnowledgeCoreRequest $request)
     {
-        $model = KnowledgeCore::create($request->validated());
+        KnowledgeCore::create($request->validated());
         $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CREATED');
         return redirect()->route('admin.knowledge-core.index')->with('success', $message);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param KnowledgeCore $knowledgeCore
-     * @return Application|Factory|View|\Illuminate\Foundation\Application
-     */
-    public function show(KnowledgeCore $knowledgeCore)
-    {
-        abort('404');
     }
 
     /**

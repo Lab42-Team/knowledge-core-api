@@ -29,11 +29,14 @@ Route::middleware(['set_locale'])->group(function() {
     Route::group(['prefix' => 'admin'], function() {
         Route::get('/', [IndexController::class, 'index'])->name('admin.index');
         Route::name('admin.')->group(function () {
-            Route::resource('knowledge-core', KnowledgeCoreController::class);
+            Route::resource('knowledge-core', KnowledgeCoreController::class)->except(['show']);
             Route::resource('news', NewsController::class);
             Route::resource('developments', DevelopmentsController::class);
             Route::resource('project', ProjectController::class);
             Route::resource('user', UserController::class);
+            Route::fallback(function () {
+                return abort(404);
+            });
         });
     });
 });
