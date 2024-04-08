@@ -53,6 +53,17 @@ class KnowledgeCoreController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param KnowledgeCore $knowledgeCore
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
+     */
+    public function show(KnowledgeCore $knowledgeCore)
+    {
+        //
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param KnowledgeCore $knowledgeCore
