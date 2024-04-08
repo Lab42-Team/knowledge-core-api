@@ -18,8 +18,8 @@ class KnowledgeCoreController extends Controller
      */
     public function index()
     {
-        $knowledge_cores = KnowledgeCore::all();
-        return view('admin.knowledge-core.index', compact('knowledge_cores'));
+        $knowledge_core = KnowledgeCore::first();
+        return view('admin.knowledge-core.index', compact('knowledge_core'));
     }
 
     /**
@@ -38,20 +38,9 @@ class KnowledgeCoreController extends Controller
      */
     public function store(StoreKnowledgeCoreRequest $request)
     {
-        $model = KnowledgeCore::create($request->validated());
-        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CREATED', ['id' => $model->id]);
-        return redirect()->route('admin.knowledge-core.show', $model->id)->with('success', $message);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param KnowledgeCore $knowledgeCore
-     * @return Application|Factory|View|\Illuminate\Foundation\Application
-     */
-    public function show(KnowledgeCore $knowledgeCore)
-    {
-        return view('admin.knowledge-core.show', compact('knowledgeCore'));
+        KnowledgeCore::create($request->validated());
+        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CREATED');
+        return redirect()->route('admin.knowledge-core.index')->with('success', $message);
     }
 
     /**
@@ -75,8 +64,8 @@ class KnowledgeCoreController extends Controller
     public function update(UpdateKnowledgeCoreRequest $request, KnowledgeCore $knowledgeCore)
     {
         $knowledgeCore->update($request->validated());
-        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CHANGED', ['id' => $knowledgeCore->id]);
-        return redirect()->route('admin.knowledge-core.show', $knowledgeCore->id)->with('success', $message);
+        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.CHANGED');
+        return redirect()->route('admin.knowledge-core.index')->with('success', $message);
     }
 
     /**
@@ -88,7 +77,7 @@ class KnowledgeCoreController extends Controller
     public function destroy(KnowledgeCore $knowledgeCore)
     {
         $knowledgeCore->delete();
-        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.DELETED', ['id' => $knowledgeCore->id]);
+        $message = __('knowledge_core.KNOWLEDGE_CORE_MESSAGE.DELETED');
         return redirect()->route('admin.knowledge-core.index')->with('error', $message);
     }
 }
