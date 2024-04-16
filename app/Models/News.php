@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -33,6 +34,7 @@ use Illuminate\Support\Arr;
 class News extends Model
 {
     use HasFactory;
+    use Filterable;
 
     // Статусы новостей, которые будут публиковаться на платформе
     const PUBLISHED_STATUS = 0; // Опубликована (новость открыта для отображения на сайте)
