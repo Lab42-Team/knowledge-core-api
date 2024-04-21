@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Filters\NewsFilter;
+use App\Http\Requests\Admin\News\FilterNewsRequest;
 use App\Http\Requests\Admin\News\StoreNewsRequest;
 use App\Http\Requests\Admin\News\UpdateNewsRequest;
 use App\Models\News;
@@ -18,10 +20,15 @@ class NewsController extends Controller
      *
      * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
-    public function index()
+    public function index(FilterNewsRequest $request)
     {
-        $news = News::all();
-        return view('admin.news.index', compact('news'));
+        $data = $request->validated();
+
+        $filter = app()->make(NewsFilter::class, ['queryParams' => array_filter($data, 'strlen')]);
+
+        $news = News::filter($filter)->paginate(20);
+        $statuses = News::getStatusArray();
+        return view('admin.news.index', compact('news', 'statuses'));
     }
 
     /**

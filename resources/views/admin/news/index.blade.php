@@ -48,6 +48,38 @@ use Carbon\Carbon;
                                     <i class="bi bi-plus-lg"></i> {{ __('main.BUTTON_ADD') }}
                                 </a>
                             </div>
+
+                            <div class="d-inline-flex gap-1">
+
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Фильтр
+                                    </button>
+
+                                    <form class="dropdown-menu p-4" action="{{ route('admin.news.index') }}" method="GET" style="width: 400px;">
+
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">{{ __('news.NEWS_MODEL.NAME') }}</label>
+                                            <input type="text" id="name" name="name" class="form-control" @if(isset($_GET['name'])) value="{{ $_GET['name'] }}" @endif">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="status" class="form-label">{{ __('news.NEWS_MODEL.STATUS') }}</label>
+                                            <select class="form-select" name="status" id="status">
+                                                <option></option>
+                                                @foreach($statuses as $key => $status)
+                                                    <option value="{{ $key }}" @if(isset($_GET['status'])) @if($_GET['status'] == $key) selected @endif @endif>{{ $status }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Выбрать</button>
+
+                                    </form>
+                                </div>
+
+                            </div>
+
                         </div>
                         <!-- /.card-header -->
 
@@ -68,16 +100,16 @@ use Carbon\Carbon;
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($news as $news)
+                                @foreach($news as $one_news)
                                     <tr class="align-middle">
-                                        <td>{{ $news->id }}</td>
-                                        <td>{{ $news->name }}</td>
-                                        <td>{{ News::getStatusName($news->status) }}</td>
-                                        <td>{{ Carbon::parse($news->date)->format('d.m.Y H:i') }}</td>
-                                        <td><a title="{{ __('main.BUTTON_VIEW') }}" href="{{ route('admin.news.show', $news->id) }}"><i class="bi bi-eye-fill"></i></a></td>
-                                        <td><a title="{{ __('main.BUTTON_EDIT') }}" href="{{ route('admin.news.edit', $news->id) }}"><i class="bi bi-pen-fill"></i></a></td>
+                                        <td>{{ $one_news->id }}</td>
+                                        <td>{{ $one_news->name }}</td>
+                                        <td>{{ News::getStatusName($one_news->status) }}</td>
+                                        <td>{{ Carbon::parse($one_news->date)->format('d.m.Y H:i') }}</td>
+                                        <td><a title="{{ __('main.BUTTON_VIEW') }}" href="{{ route('admin.news.show', $one_news->id) }}"><i class="bi bi-eye-fill"></i></a></td>
+                                        <td><a title="{{ __('main.BUTTON_EDIT') }}" href="{{ route('admin.news.edit', $one_news->id) }}"><i class="bi bi-pen-fill"></i></a></td>
                                         <td>
-                                            <form action="{{ route('admin.news.destroy', $news->id) }}" method="POST">
+                                            <form action="{{ route('admin.news.destroy', $one_news->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="border-0 bg-transparent" title="{{ __('main.BUTTON_DELETE') }}">
@@ -91,15 +123,12 @@ use Carbon\Carbon;
                             </table>
                         </div>
                         <!-- /.card-body -->
-                        <!--<div class="card-footer clearfix">
-                            <ul class="pagination pagination-sm m-0 float-end">
-                                <li class="page-item"> <a class="page-link" href="#">«</a> </li>
-                                <li class="page-item"> <a class="page-link" href="#">1</a> </li>
-                                <li class="page-item"> <a class="page-link" href="#">2</a> </li>
-                                <li class="page-item"> <a class="page-link" href="#">3</a> </li>
-                                <li class="page-item"> <a class="page-link" href="#">»</a> </li>
-                            </ul>
-                        </div>-->
+
+                        <div class="card-footer bg-transparent">
+                            <div>
+                                {{ $news->withQueryString()->links() }}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!--end::Row-->
