@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\User;
+namespace App\Http\Requests\User;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,12 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255|unique:users,name',
+            'name' => "required|string|max:255|unique:users,name,{$this->user->id}",
             'password' => 'required|string|max:255',
-            'email' => 'required|email:rfc,dns|max:255|unique:users,email',
+            'email' => "required|email:rfc,dns|max:255|unique:users,email,{$this->user->id}",
             'role' => 'required|integer',
             'status' => 'required|integer',
-            'full_name' => 'string|max:255|nullable',
+            'full_name' => 'string|max:255|nullable'
         ];
     }
 

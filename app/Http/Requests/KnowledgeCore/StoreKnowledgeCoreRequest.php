@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\KnowledgeCore;
+namespace App\Http\Requests\KnowledgeCore;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateKnowledgeCoreRequest extends FormRequest
+class StoreKnowledgeCoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,11 @@ class UpdateKnowledgeCoreRequest extends FormRequest
         return [
             'description' => 'string|nullable',
             'phone' => 'string|nullable|max:255',
-            'email' => "string|nullable|email:rfc,dns|max:255|unique:knowledge_core,email, {$this->knowledge_core->id}",
+            'email' => 'string|nullable|email:rfc,dns|max:255|unique:App\Models\KnowledgeCore,email',
             'address' => 'string|nullable|max:255',
-            'references' => "string|nullable|unique:knowledge_core,references, {$this->knowledge_core->id}",
-            'lab_link' => "string|nullable|unique:knowledge_core,lab_link, {$this->knowledge_core->id}",
-            'github_link' => "string|nullable|unique:knowledge_core,github_link, {$this->knowledge_core->id}",
+            'references' => 'string|nullable|unique:App\Models\KnowledgeCore,references',
+            'lab_link' => 'string|nullable|unique:App\Models\KnowledgeCore,lab_link',
+            'github_link' => 'string|nullable|unique:App\Models\KnowledgeCore,github_link',
         ];
     }
 
