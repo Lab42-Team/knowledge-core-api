@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Requests\Project\StoreProjectRequest;
 use App\Http\Requests\Project\UpdateProjectRequest;
+use Illuminate\Http\JsonResponse;
 
 class ProjectController extends Controller
 {
@@ -21,7 +22,7 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function index()
     {
@@ -33,7 +34,7 @@ class ProjectController extends Controller
      * Store a newly created resource in storage.
      *
      * @param StoreProjectRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function store(StoreProjectRequest $request)
     {
@@ -49,7 +50,7 @@ class ProjectController extends Controller
      * Display the specified resource.
      *
      * @param Project $project
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function show(Project $project)
     {
@@ -61,7 +62,7 @@ class ProjectController extends Controller
      *
      * @param UpdateProjectRequest $request
      * @param Project $project
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
@@ -81,7 +82,7 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Project $project
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function destroy(Project $project)
     {

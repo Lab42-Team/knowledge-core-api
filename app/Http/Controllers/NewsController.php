@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Http\Requests\News\StoreNewsRequest;
 use App\Http\Requests\News\UpdateNewsRequest;
+use Illuminate\Http\JsonResponse;
 
 class NewsController extends Controller
 {
@@ -21,7 +22,7 @@ class NewsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function index()
     {
@@ -33,7 +34,7 @@ class NewsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param StoreNewsRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function store(StoreNewsRequest $request)
     {
@@ -45,7 +46,7 @@ class NewsController extends Controller
      * Display the specified resource.
      *
      * @param News $news
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function show(News $news)
     {
@@ -57,7 +58,7 @@ class NewsController extends Controller
      *
      * @param UpdateNewsRequest $request
      * @param News $news
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function update(UpdateNewsRequest $request, News $news)
     {
@@ -71,7 +72,7 @@ class NewsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param News $news
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function destroy(News $news)
     {
