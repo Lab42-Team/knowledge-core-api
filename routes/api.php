@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DevelopmentsController;
 use App\Http\Controllers\KnowledgeCoreController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +21,6 @@ Route::group(['middleware' => ['cors', 'api'], 'prefix' => 'v1/'], function () {
     Route::apiResource('knowledge-core', KnowledgeCoreController::class);
     Route::apiResource('developments', DevelopmentsController::class);
     Route::apiResource('users', UserController::class);
+    Route::apiResource('news', NewsController::class);
+    Route::apiResource('project', ProjectController::class);
 });
