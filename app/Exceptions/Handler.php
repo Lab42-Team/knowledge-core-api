@@ -4,6 +4,8 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Http\JsonResponse;
 
 class Handler extends ExceptionHandler
 {
@@ -23,8 +25,11 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (ValidationException $e, $request) {
+            return response()->json([
+                'message' => 'ERROR_VALIDATION',
+                'errors' => $e->errors()
+            ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
         });
     }
 }
