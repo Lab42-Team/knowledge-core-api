@@ -7,6 +7,8 @@ use App\Http\Requests\News\StoreNewsRequest;
 use App\Http\Requests\News\UpdateNewsRequest;
 use Illuminate\Http\JsonResponse;
 
+use Illuminate\Support\Facades\Log;
+
 class NewsController extends Controller
 {
     /**
@@ -78,5 +80,13 @@ class NewsController extends Controller
     {
         $news->delete();
         return response()->json(['id' => $news->id], 200);
+    }
+
+
+    public function getStatuses()
+    {
+        $statuses = News::getStatusArray();
+        return response()->json(['statuses' => $statuses]);
+
     }
 }

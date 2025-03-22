@@ -23,4 +23,7 @@ Route::group(['middleware' => ['cors', 'api'], 'prefix' => 'v1/'], function () {
     Route::apiResource('users', UserController::class);
     Route::apiResource('news', NewsController::class);
     Route::apiResource('project', ProjectController::class);
+
+
+    Route::get('news/get-statuses', [NewsController::class, 'getStatuses']);
 });
