@@ -82,8 +82,13 @@ class NewsController extends Controller
         return response()->json(['id' => $news->id], 200);
     }
 
-
-    public function getStatuses()
+    /**
+     * Get news statuses
+     *
+     * @param News $news
+     * @return JsonResponse
+     */
+    public function getStatuses(News $news)
     {
         $statuses = News::getStatusArray();
         return response()->json(['statuses' => $statuses]);
