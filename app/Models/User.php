@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Arr;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
  * App\Models\User
@@ -49,7 +50,7 @@ use Illuminate\Support\Arr;
  * @method static Builder|User whereOrganizationId($value)
  * @mixin Builder
  */
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -89,6 +90,14 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function getJWTIdentifier() {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims() {
+        return [];
+    }
 
     /**
      * The attributes that should be cast.
