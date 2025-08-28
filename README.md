@@ -1,10 +1,8 @@
-<p align="center">
-    <h1 align="center">Knowledge Core</h1>
-</p>
+<p align="center"><h1 align="center">Knowledge Core</h1></p>
 
 **The Knowledge Core** is a web-based application to modelling knowledge and prototyping knowledge bases.
 
-The Knowledge Core is based on [PHP 8](https://www.php.net/releases/8.0/ru.php) and [Laravel 10 Framework](https://laravel.com/docs/10.x/releases).
+The Knowledge Core is based on the [PHP 8.2](https://www.php.net/releases/8.0/ru.php) and the [Laravel 12 Framework](https://laravel.com/docs/12.x/releases).
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -15,7 +13,7 @@ The Knowledge Core is based on [PHP 8](https://www.php.net/releases/8.0/ru.php) 
 
 ## Version
 
-0.1
+1.0
 
 ## Authors
 * [Dmitry A. Shpachenko](mailto:demix357@mail.ru)
