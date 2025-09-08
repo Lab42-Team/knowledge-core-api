@@ -16,7 +16,11 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        App::setLocale(session('locale'));
+        $locale = $request->header('Accept-Language', config('app.locale')); // По умолчанию en
+        if (in_array($locale, ['en', 'ru'])) {
+            App::setLocale($locale);
+        }
         return $next($request);
     }
+
 }
