@@ -12,15 +12,16 @@ class SetLocale
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param Request $request
+     * @param Closure $next
+     * @return Response
      */
     public function handle(Request $request, Closure $next): Response
     {
         $locale = $request->header('Accept-Language', config('app.locale')); // По умолчанию en
-        if (in_array($locale, ['en', 'ru'])) {
+        if (in_array($locale, ['en', 'ru']))
             App::setLocale($locale);
-        }
+
         return $next($request);
     }
-
 }
