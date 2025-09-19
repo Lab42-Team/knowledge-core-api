@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\Filterable;
+use ArrayAccess;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -76,7 +77,7 @@ class News extends Model
      * Получение названия статуса.
      *
      * @param $status
-     * @return array|\ArrayAccess|mixed
+     * @return array|ArrayAccess|mixed
      */
     public static function getStatusName($status)
     {

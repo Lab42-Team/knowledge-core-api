@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use ArrayAccess;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -97,7 +98,7 @@ class Project extends Model
      * Получение названия типа.
      *
      * @param $type
-     * @return array|\ArrayAccess|mixed
+     * @return array|ArrayAccess|mixed
      */
     public static function getTypeName($type)
     {
@@ -122,7 +123,7 @@ class Project extends Model
      * Получение названия статуса.
      *
      * @param $status
-     * @return array|\ArrayAccess|mixed
+     * @return array|ArrayAccess|mixed
      */
     public static function getStatusName($status)
     {

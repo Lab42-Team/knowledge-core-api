@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use ArrayAccess;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -123,7 +124,6 @@ class User extends Authenticatable implements JWTSubject
             'user_id', 'project_id')->withTimestamps();
     }
 
-
     /**
      * Получение списка ролей.
      *
@@ -140,8 +140,8 @@ class User extends Authenticatable implements JWTSubject
     /**
      * Получение названия роли.
      *
-     * @param $status
-     * @return array|\ArrayAccess|mixed
+     * @param $role
+     * @return array|ArrayAccess|mixed
      */
     public static function getRoleName($role)
     {
@@ -166,7 +166,7 @@ class User extends Authenticatable implements JWTSubject
      * Получение названия статуса.
      *
      * @param $status
-     * @return array|\ArrayAccess|mixed
+     * @return array|ArrayAccess|mixed
      */
     public static function getStatusName($status)
     {
