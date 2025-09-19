@@ -7,8 +7,6 @@ use App\Http\Requests\News\StoreNewsRequest;
 use App\Http\Requests\News\UpdateNewsRequest;
 use Illuminate\Http\JsonResponse;
 
-use Illuminate\Support\Facades\Log;
-
 class NewsController extends Controller
 {
     /**
@@ -83,23 +81,27 @@ class NewsController extends Controller
     }
 
     /**
-     * Get news statuses
+     * Get news statuses.
      *
-     * @param News $news
      * @return JsonResponse
      */
-    public function getStatuses(News $news)
+    public function getStatuses()
     {
         $statuses = News::getStatusArray();
         return response()->json(['statuses' => $statuses]);
     }
 
-    public function getStatusName(News $news, $status)
+    /**
+     * Get name of news statuses.
+     *
+     * @param $status
+     * @return JsonResponse
+     */
+    public function getStatusName($status)
     {
         $statusName = News::getStatusName($status);
-        if (!$statusName) {
+        if (!$statusName)
             return response()->json(['error' => 'Статус не найден'], 404);
-        }
         return response()->json(['statusName' => $statusName]);
     }
 }
