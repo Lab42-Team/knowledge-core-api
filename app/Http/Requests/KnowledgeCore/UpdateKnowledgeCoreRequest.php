@@ -25,7 +25,7 @@ class UpdateKnowledgeCoreRequest extends FormRequest
         return [
             'description' => 'string|nullable',
             'phone' => 'string|nullable|max:255',
-            'email' => "string|nullable|email:rfc,dns|max:255|unique:knowledge_core,email, {$this->knowledge_core->id}",
+            'email' => "string|nullable|email:rfc|max:255|unique:knowledge_core,email, {$this->knowledge_core->id}",
             'address' => 'string|nullable|max:255',
             'references' => "string|nullable|unique:knowledge_core,references, {$this->knowledge_core->id}",
             'lab_link' => "string|nullable|unique:knowledge_core,lab_link, {$this->knowledge_core->id}",

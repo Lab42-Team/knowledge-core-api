@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(UserSeeder::class);
+        $this->call(KnowledgeCoreSeeder::class);
         $this->command->info('Данные по-умолчанию загружены в базу данных!');
     }
 }
