@@ -25,7 +25,7 @@ class StoreDevelopmentsRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'string|nullable',
-            'year' => 'integer|between:1900,3000|nullable',
+            'year' => 'date|nullable',
             'authors' => 'string|nullable',
             'publications' => 'string|nullable',
             'requirements' => 'string|nullable',
