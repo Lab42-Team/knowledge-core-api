@@ -29,7 +29,9 @@ Route::group(['middleware' => ['cors', 'api'], 'prefix' => 'v1/'], function () {
     Route::get('news/get-statuses', [NewsController::class, 'getStatuses']);
     Route::get('news/get-status-name/{status}', [NewsController::class, 'getStatusName']);
     Route::apiResource('knowledge-core', KnowledgeCoreController::class);
-    Route::apiResource('developments', DevelopmentsController::class);
+    Route::apiResource('developments', DevelopmentsController::class)->parameters([
+        'developments' => 'developments' // Параметр {development} привязывается к модели Developments
+    ]);
     Route::apiResource('users', UserController::class);
     Route::apiResource('news', NewsController::class);
     Route::apiResource('project', ProjectController::class);

@@ -25,16 +25,17 @@ class UpdateDevelopmentsRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'string|nullable',
-            'year' => 'integer|between:1900,3000|nullable',
+            'year' => 'date|nullable',
             'authors' => 'string|nullable',
             'publications' => 'string|nullable',
             'requirements' => 'string|nullable',
             'practical_application' => 'string|nullable',
             'version_history' => 'string|nullable',
             'demo_videos' => 'string|nullable',
-            'software_link' => "string|nullable|unique:developments,software_link,{$this->development->id}",
-            'documentation_link' => "string|nullable|unique:developments,documentation_link,{$this->development->id}",
-            'github_link' => "string|nullable|unique:developments,github_link,{$this->development->id}",
+            'software_link' => "string|nullable|unique:developments,software_link,{$this->developments->id}",
+            'documentation_link' => "string|nullable|unique:developments,documentation_link,{$this->developments->id}",
+            'github_link' => "string|nullable|unique:developments,github_link,{$this->developments->id}",
+
         ];
     }
 
