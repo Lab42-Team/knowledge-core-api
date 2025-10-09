@@ -72,9 +72,10 @@ class ProjectController extends Controller
         // Если в users есть значения, то добавление связи пользователей с проектом (таблиа ProjectUser)
         if (isset($validated['users']))
             $project->users()->sync($validated['users']);
-        else
+        //кажется не нужно
+        //else
             // В противном случае, удаление связки из таблицы ProjectUser
-            $project->users()->detach();
+            //$project->users()->detach();
         return response()->json($project);
     }
 
