@@ -89,4 +89,26 @@ class ProjectController extends Controller
         $project->delete();
         return response()->json(['id' => $project->id], 200);
     }
+
+    /**
+     * Get project types.
+     *
+     * @return JsonResponse
+     */
+    public function getTypes()
+    {
+        $types = Project::getTypeArray();
+        return response()->json(['types' => $types]);
+    }
+
+    /**
+     * Get project statuses.
+     *
+     * @return JsonResponse
+     */
+    public function getStatuses()
+    {
+        $statuses = Project::getStatusArray();
+        return response()->json(['statuses' => $statuses]);
+    }
 }

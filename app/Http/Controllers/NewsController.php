@@ -90,18 +90,4 @@ class NewsController extends Controller
         $statuses = News::getStatusArray();
         return response()->json(['statuses' => $statuses]);
     }
-
-    /**
-     * Get name of news statuses.
-     *
-     * @param $status
-     * @return JsonResponse
-     */
-    public function getStatusName($status)
-    {
-        $statusName = News::getStatusName($status);
-        if (!$statusName)
-            return response()->json(['error' => 'Статус не найден'], 404);
-        return response()->json(['statusName' => $statusName]);
-    }
 }
