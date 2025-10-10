@@ -72,9 +72,10 @@ class ProjectController extends Controller
         // Если в users есть значения, то добавление связи пользователей с проектом (таблиа ProjectUser)
         if (isset($validated['users']))
             $project->users()->sync($validated['users']);
-        else
+        //кажется не нужно
+        //else
             // В противном случае, удаление связки из таблицы ProjectUser
-            $project->users()->detach();
+            //$project->users()->detach();
         return response()->json($project);
     }
 
@@ -88,5 +89,27 @@ class ProjectController extends Controller
     {
         $project->delete();
         return response()->json(['id' => $project->id], 200);
+    }
+
+    /**
+     * Get project types.
+     *
+     * @return JsonResponse
+     */
+    public function getTypes()
+    {
+        $types = Project::getTypeArray();
+        return response()->json(['types' => $types]);
+    }
+
+    /**
+     * Get project statuses.
+     *
+     * @return JsonResponse
+     */
+    public function getStatuses()
+    {
+        $statuses = Project::getStatusArray();
+        return response()->json(['statuses' => $statuses]);
     }
 }
