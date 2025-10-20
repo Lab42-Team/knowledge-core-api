@@ -90,4 +90,27 @@ class UserController extends Controller
         $user->delete();
         return response()->json(['id' => $user->id], 200);
     }
+
+
+    /**
+     * Get user roles.
+     *
+     * @return JsonResponse
+     */
+    public function getRoles()
+    {
+        $roles = User::getRoleArray();
+        return response()->json(['roles' => $roles]);
+    }
+
+    /**
+     * Get user statuses.
+     *
+     * @return JsonResponse
+     */
+    public function getStatuses()
+    {
+        $statuses = User::getStatusArray();
+        return response()->json(['statuses' => $statuses]);
+    }
 }
