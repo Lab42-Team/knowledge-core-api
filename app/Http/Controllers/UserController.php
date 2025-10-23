@@ -74,6 +74,12 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $validated = $request->validated();
+        // Обновляем пароль только если он был передан
+        if (isset($validated['password'])) {
+            $validated['password'] = bcrypt($validated['password']);
+        } else {
+            unset($validated['password']); // Удаляем пароль из данных, если он не передан
+        }
         $user->fill($validated);
         $user->save();
         return response()->json($user);
