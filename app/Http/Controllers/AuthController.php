@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Components\Helper;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -28,8 +30,14 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-        if ($token = $this->guard()->attempt($credentials))
+        if ($token = $this->guard()->attempt($credentials)) {
+            $user = $this->guard()->user(); // Получаем текущего авторизованного пользователя
+            // Записываем данные последнего входа
+            $user->last_login_date = Carbon::now();
+            $user->login_ip = Helper::getIp();
+            $user->save(); // Сохранение пользователя
             return $this->respondWithToken($token);
+        }
         return response()->json(['error' => 'Unauthorized'], 401);
     }
 
