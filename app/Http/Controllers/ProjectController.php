@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Http\Requests\Project\StoreProjectRequest;
 use App\Http\Requests\Project\UpdateProjectRequest;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -69,7 +70,7 @@ class ProjectController extends Controller
         $validated = $request->validated();
         $project->fill($validated);
         $project->save();
-        // Если в users есть значения, то добавление связи пользователей с проектом (таблиа ProjectUser)
+        // Если в users есть значения, то добавление связи пользователей с проектом (таблица ProjectUser)
         if (isset($validated['users']))
             $project->users()->sync($validated['users']);
         //кажется не нужно
@@ -89,6 +90,20 @@ class ProjectController extends Controller
     {
         $project->delete();
         return response()->json(['id' => $project->id], 200);
+    }
+
+
+    public function showUsersProject(Project $project)
+    {
+        $users = $project->users()->get();
+        return response()->json($users);
+    }
+
+
+    public function removeUserFromProject(Project $project, $userId)
+    {
+        $detached = $project->users()->detach($userId);
+        return response()->json([$userId]);
     }
 
     /**
