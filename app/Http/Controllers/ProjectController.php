@@ -6,7 +6,6 @@ use App\Models\Project;
 use App\Http\Requests\Project\StoreProjectRequest;
 use App\Http\Requests\Project\UpdateProjectRequest;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -73,10 +72,8 @@ class ProjectController extends Controller
         // Если в users есть значения, то добавление связи пользователей с проектом (таблица ProjectUser)
         if (isset($validated['users']))
             $project->users()->sync($validated['users']);
-        //кажется не нужно
         //else
-            // В противном случае, удаление связки из таблицы ProjectUser
-            //$project->users()->detach();
+        //    $project->users()->detach(); // В противном случае, удаление связки из таблицы ProjectUser
         return response()->json($project);
     }
 
@@ -92,17 +89,28 @@ class ProjectController extends Controller
         return response()->json(['id' => $project->id], 200);
     }
 
-
+    /**
+     * Display all users for this project.
+     *
+     * @param Project $project
+     * @return JsonResponse
+     */
     public function showUsersProject(Project $project)
     {
         $users = $project->users()->get();
         return response()->json($users);
     }
 
-
+    /**
+     * Remove user by id from this project.
+     *
+     * @param Project $project
+     * @param $userId
+     * @return JsonResponse
+     */
     public function removeUserFromProject(Project $project, $userId)
     {
-        $detached = $project->users()->detach($userId);
+        $project->users()->detach($userId);
         return response()->json([$userId]);
     }
 
