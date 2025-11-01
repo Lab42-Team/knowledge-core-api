@@ -29,6 +29,8 @@ Route::group(['middleware' => ['cors', 'api'], 'prefix' => 'v1/'], function () {
     Route::get('news/get-statuses', [NewsController::class, 'getStatuses']);
     Route::get('project/get-types', [ProjectController::class, 'getTypes']);
     Route::get('project/get-statuses', [ProjectController::class, 'getStatuses']);
+    Route::get('project/show-users-project/{project}', [ProjectController::class, 'showUsersProject']);
+    Route::delete('project/{project}/user/{userId}', [ProjectController::class, 'removeUserFromProject']);
     Route::get('users/get-roles', [UserController::class, 'getRoles']);
     Route::get('users/get-statuses', [UserController::class, 'getStatuses']);
     Route::apiResource('knowledge-core', KnowledgeCoreController::class);
