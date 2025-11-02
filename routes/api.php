@@ -25,7 +25,7 @@ Route::group(['middleware' => ['cors', 'api'], 'prefix' => 'auth/'], function ()
     Route::post('refresh', [AuthController::class, 'refresh']);
 });
 
-Route::group(['middleware' => ['cors', 'api'], 'prefix' => 'v1/'], function () {
+Route::group(['middleware' => ['cors', 'api'], 'prefix' => 'v1/admin/'], function () {
     Route::get('news/get-statuses', [NewsController::class, 'getStatuses']);
     Route::get('project/get-types', [ProjectController::class, 'getTypes']);
     Route::get('project/get-statuses', [ProjectController::class, 'getStatuses']);
