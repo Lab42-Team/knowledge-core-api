@@ -216,6 +216,179 @@
                     }
                 ]
             }
+        },
+        "/api/v1/knowledge-core": {
+            "get": {
+                "tags": [
+                    "Основная информация"
+                ],
+                "summary": "Получение основной информации о приложении",
+                "description": "Для администратора возвращает первую запись с базы данных, содержащую основную информацию о приложении.",
+                "operationId": "642103fe6ee61e6bdcb241fb37b34ad4",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Some description"
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": "+999 100 10 10"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "test@knowledge-core.ru"
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "example": "Some address"
+                                        },
+                                        "references": {
+                                            "type": "string",
+                                            "example": "Some references"
+                                        },
+                                        "lab_link": {
+                                            "type": "string",
+                                            "example": "Some link to laboratory website"
+                                        },
+                                        "github_link": {
+                                            "type": "string",
+                                            "example": "Some link to GitHub laboratory group"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/knowledge-core/{knowledge_core}": {
+            "put": {
+                "tags": [
+                    "Основная информация"
+                ],
+                "summary": "Обновить основную информацию о приложении",
+                "operationId": "c64acd0fbfa5df9b578988c5501e1ca8",
+                "parameters": [
+                    {
+                        "name": "knowledge_core",
+                        "in": "path",
+                        "description": "id основной информации",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Some description for edit"
+                                            },
+                                            "phone": {
+                                                "type": "string",
+                                                "example": "Some phone for edit"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "Some email for edit"
+                                            },
+                                            "address": {
+                                                "type": "string",
+                                                "example": "Some address for edit"
+                                            },
+                                            "references": {
+                                                "type": "string",
+                                                "example": "Some references for edit"
+                                            },
+                                            "lab_link": {
+                                                "type": "string",
+                                                "example": "Some link to laboratory website for edit"
+                                            },
+                                            "github_link": {
+                                                "type": "string",
+                                                "example": "Some link to GitHub laboratory group for edit"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Some description"
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": "+999 100 10 10"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "test@knowledge-core.ru"
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "example": "Some address"
+                                        },
+                                        "references": {
+                                            "type": "string",
+                                            "example": "Some references"
+                                        },
+                                        "lab_link": {
+                                            "type": "string",
+                                            "example": "Some link to laboratory website"
+                                        },
+                                        "github_link": {
+                                            "type": "string",
+                                            "example": "Some link to GitHub laboratory group"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -230,6 +403,10 @@
         {
             "name": "Аутентификация",
             "description": "Аутентификация"
+        },
+        {
+            "name": "Основная информация",
+            "description": "Основная информация"
         }
     ]
 }
