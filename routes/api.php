@@ -35,7 +35,6 @@ Route::group(['middleware' => ['cors', 'api'], 'prefix' => 'v1/'], function () {
     Route::get('users/get-statuses', [UserController::class, 'getStatuses']);
     Route::get('knowledge-core', [KnowledgeCoreController::class, 'index']);
     Route::match(['put', 'patch'],'knowledge-core/{knowledge_core}', [KnowledgeCoreController::class, 'update']);
-//    Route::apiResource('knowledge-core', KnowledgeCoreController::class);
     Route::apiResource('developments', DevelopmentsController::class)->parameters([
         'developments' => 'developments' // Параметр {development} привязывается к модели Developments
     ]);
