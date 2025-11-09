@@ -34,8 +34,7 @@ use Illuminate\Support\Arr;
  */
 class News extends Model
 {
-    use HasFactory;
-    use Filterable;
+    use HasFactory, Filterable;
 
     // Статусы новостей, которые будут публиковаться на платформе
     const PUBLISHED_STATUS = 0; // Опубликована (новость открыта для отображения на сайте)
@@ -58,6 +57,16 @@ class News extends Model
         'description',
         'status',
         'date',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array<string>
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at'
     ];
 
     /**

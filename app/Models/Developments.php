@@ -75,4 +75,14 @@ class Developments extends Model
         'documentation_link',
         'github_link',
     ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array<string>
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
 }
