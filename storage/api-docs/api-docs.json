@@ -217,6 +217,519 @@
                 ]
             }
         },
+        "/api/v1/developments": {
+            "get": {
+                "tags": [
+                    "Разработки"
+                ],
+                "summary": "Получить список всех разработок",
+                "description": "Для любого пользователя возвращает список всех разработок.",
+                "operationId": "b67de417b0820fec76b86520b4f57d15",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Some description"
+                                            },
+                                            "year": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2025-11-01 01:00:00"
+                                            },
+                                            "authors": {
+                                                "type": "string",
+                                                "example": "Some authors"
+                                            },
+                                            "publications": {
+                                                "type": "string",
+                                                "example": "Some publications"
+                                            },
+                                            "requirements": {
+                                                "type": "string",
+                                                "example": "Some requirements"
+                                            },
+                                            "practical_application": {
+                                                "type": "string",
+                                                "example": "Some practical application"
+                                            },
+                                            "version_history": {
+                                                "type": "string",
+                                                "example": "Some version history"
+                                            },
+                                            "demo_videos": {
+                                                "type": "string",
+                                                "example": "Some demo videos"
+                                            },
+                                            "software_link": {
+                                                "type": "string",
+                                                "example": "Some software link"
+                                            },
+                                            "documentation_link": {
+                                                "type": "string",
+                                                "example": "Some documentation link"
+                                            },
+                                            "github_link": {
+                                                "type": "string",
+                                                "example": "Some github link"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Разработки"
+                ],
+                "summary": "Создание новой разработки",
+                "description": "Для администратора дает возможность создать новую разработку.",
+                "operationId": "a6a1d142f09030db65009a1869bce065",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Some description"
+                                            },
+                                            "year": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2025-11-01 01:00:00"
+                                            },
+                                            "authors": {
+                                                "type": "string",
+                                                "example": "Some authors"
+                                            },
+                                            "publications": {
+                                                "type": "string",
+                                                "example": "Some publications"
+                                            },
+                                            "requirements": {
+                                                "type": "string",
+                                                "example": "Some requirements"
+                                            },
+                                            "practical_application": {
+                                                "type": "string",
+                                                "example": "Some practical application"
+                                            },
+                                            "version_history": {
+                                                "type": "string",
+                                                "example": "Some version history"
+                                            },
+                                            "demo_videos": {
+                                                "type": "string",
+                                                "example": "Some demo videos"
+                                            },
+                                            "software_link": {
+                                                "type": "string",
+                                                "example": "Some software link"
+                                            },
+                                            "documentation_link": {
+                                                "type": "string",
+                                                "example": "Some documentation link"
+                                            },
+                                            "github_link": {
+                                                "type": "string",
+                                                "example": "Some github link"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Some name"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Some description"
+                                        },
+                                        "year": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2025-11-01 01:00:00"
+                                        },
+                                        "authors": {
+                                            "type": "string",
+                                            "example": "Some authors"
+                                        },
+                                        "publications": {
+                                            "type": "string",
+                                            "example": "Some publications"
+                                        },
+                                        "requirements": {
+                                            "type": "string",
+                                            "example": "Some requirements"
+                                        },
+                                        "practical_application": {
+                                            "type": "string",
+                                            "example": "Some practical application"
+                                        },
+                                        "version_history": {
+                                            "type": "string",
+                                            "example": "Some version history"
+                                        },
+                                        "demo_videos": {
+                                            "type": "string",
+                                            "example": "Some demo videos"
+                                        },
+                                        "software_link": {
+                                            "type": "string",
+                                            "example": "Some software link"
+                                        },
+                                        "documentation_link": {
+                                            "type": "string",
+                                            "example": "Some documentation link"
+                                        },
+                                        "github_link": {
+                                            "type": "string",
+                                            "example": "Some github link"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/developments/{developments}": {
+            "get": {
+                "tags": [
+                    "Разработки"
+                ],
+                "summary": "Получить единичную разработку",
+                "description": "Для любого пользователя возвращает разработку по её идентификатору (id).",
+                "operationId": "1b4f17881ede0765690c34f61e657164",
+                "parameters": [
+                    {
+                        "name": "developments",
+                        "in": "path",
+                        "description": "id разработки",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Some name"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Some description"
+                                        },
+                                        "year": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2025-11-01 01:00:00"
+                                        },
+                                        "authors": {
+                                            "type": "string",
+                                            "example": "Some authors"
+                                        },
+                                        "publications": {
+                                            "type": "string",
+                                            "example": "Some publications"
+                                        },
+                                        "requirements": {
+                                            "type": "string",
+                                            "example": "Some requirements"
+                                        },
+                                        "practical_application": {
+                                            "type": "string",
+                                            "example": "Some practical application"
+                                        },
+                                        "version_history": {
+                                            "type": "string",
+                                            "example": "Some version history"
+                                        },
+                                        "demo_videos": {
+                                            "type": "string",
+                                            "example": "Some demo videos"
+                                        },
+                                        "software_link": {
+                                            "type": "string",
+                                            "example": "Some software link"
+                                        },
+                                        "documentation_link": {
+                                            "type": "string",
+                                            "example": "Some documentation link"
+                                        },
+                                        "github_link": {
+                                            "type": "string",
+                                            "example": "Some github link"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Разработки"
+                ],
+                "summary": "Обновить разработку",
+                "description": "Для администратора дает возможность редактировать любую разработку по её идентификатору (id).",
+                "operationId": "71f5c859f89b778d9921ca69012ebdfb",
+                "parameters": [
+                    {
+                        "name": "developments",
+                        "in": "path",
+                        "description": "id разработки",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name for edit"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Some description for edit"
+                                            },
+                                            "year": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2025-12-01 00:00:00"
+                                            },
+                                            "authors": {
+                                                "type": "string",
+                                                "example": "Some authors for edit"
+                                            },
+                                            "publications": {
+                                                "type": "string",
+                                                "example": "Some publications for edit"
+                                            },
+                                            "requirements": {
+                                                "type": "string",
+                                                "example": "Some requirements for edit"
+                                            },
+                                            "practical_application": {
+                                                "type": "string",
+                                                "example": "Some practical application for edit"
+                                            },
+                                            "version_history": {
+                                                "type": "string",
+                                                "example": "Some version history for edit"
+                                            },
+                                            "demo_videos": {
+                                                "type": "string",
+                                                "example": "Some demo videos for edit"
+                                            },
+                                            "software_link": {
+                                                "type": "string",
+                                                "example": "Some software link for edit"
+                                            },
+                                            "documentation_link": {
+                                                "type": "string",
+                                                "example": "Some documentation link for edit"
+                                            },
+                                            "github_link": {
+                                                "type": "string",
+                                                "example": "Some github link for edit"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Some new name"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Some new description"
+                                        },
+                                        "year": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2025-12-01 00:00:00"
+                                        },
+                                        "authors": {
+                                            "type": "string",
+                                            "example": "Some new authors"
+                                        },
+                                        "publications": {
+                                            "type": "string",
+                                            "example": "Some new publications"
+                                        },
+                                        "requirements": {
+                                            "type": "string",
+                                            "example": "Some new requirements"
+                                        },
+                                        "practical_application": {
+                                            "type": "string",
+                                            "example": "Some new practical application"
+                                        },
+                                        "version_history": {
+                                            "type": "string",
+                                            "example": "Some new version history"
+                                        },
+                                        "demo_videos": {
+                                            "type": "string",
+                                            "example": "Some new demo videos"
+                                        },
+                                        "software_link": {
+                                            "type": "string",
+                                            "example": "Some new software link"
+                                        },
+                                        "documentation_link": {
+                                            "type": "string",
+                                            "example": "Some new documentation link"
+                                        },
+                                        "github_link": {
+                                            "type": "string",
+                                            "example": "Some new github link"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Разработки"
+                ],
+                "summary": "Удалить разработку",
+                "description": "Для администратора дает возможность удалить любую разработку по её идентификатору (id).",
+                "operationId": "86268cf7e2444776b96f938d3b131acd",
+                "parameters": [
+                    {
+                        "name": "developments",
+                        "in": "path",
+                        "description": "id разработки",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/knowledge-core": {
             "get": {
                 "tags": [
@@ -725,6 +1238,10 @@
         {
             "name": "Аутентификация",
             "description": "Аутентификация"
+        },
+        {
+            "name": "Разработки",
+            "description": "Разработки"
         },
         {
             "name": "Основная информация",
