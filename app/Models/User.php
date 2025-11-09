@@ -4,6 +4,7 @@ namespace App\Models;
 
 use ArrayAccess;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -92,10 +93,20 @@ class User extends Authenticatable implements JWTSubject
         'remember_token',
     ];
 
+    /**
+     * Get JWT identifier (key).
+     *
+     * @return mixed
+     */
     public function getJWTIdentifier() {
         return $this->getKey();
     }
 
+    /**
+     * Get JWT custom claims.
+     *
+     * @return array
+     */
     public function getJWTCustomClaims() {
         return [];
     }
@@ -110,6 +121,11 @@ class User extends Authenticatable implements JWTSubject
         'password' => 'hashed',
     ];
 
+    /**
+     * Get all projects for user by identifier.
+     *
+     * @return HasMany
+     */
     public function project_users()
     {
         return $this->hasMany(ProjectUser::class, 'user_id');
