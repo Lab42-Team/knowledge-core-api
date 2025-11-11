@@ -1224,6 +1224,41 @@
                     }
                 ]
             }
+        },
+        "/api/v1/news/get-statuses": {
+            "get": {
+                "tags": [
+                    "Новости"
+                ],
+                "summary": "Получить статусы для новостей",
+                "description": "Для любого пользователя возвращает статусы новостей.",
+                "operationId": "650c689caa4b961924f4b81990e2137e",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "statuses": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
