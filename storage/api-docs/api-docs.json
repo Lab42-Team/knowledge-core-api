@@ -1259,6 +1259,418 @@
                     }
                 ]
             }
+        },
+        "/api/v1/users": {
+            "get": {
+                "tags": [
+                    "Пользователи"
+                ],
+                "summary": "Получить список всех пользователей",
+                "description": "Для администратора возвращает всех пользователей, зарегистрированных в системе.",
+                "operationId": "6f8f0134e30ae7557795c2a8f042fd83",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "Some email"
+                                            },
+                                            "email_verified_at": {
+                                                "type": "string",
+                                                "example": null
+                                            },
+                                            "role": {
+                                                "type": "integer",
+                                                "example": 0
+                                            },
+                                            "status": {
+                                                "type": "integer",
+                                                "example": 0
+                                            },
+                                            "full_name": {
+                                                "type": "string",
+                                                "example": "Some full name"
+                                            },
+                                            "last_login_date": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2025-11-01T01:00:00.000000Z"
+                                            },
+                                            "login_ip": {
+                                                "type": "string",
+                                                "example": "Some IP"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Пользователи"
+                ],
+                "summary": "Создание (регистрация) нового пользователя",
+                "description": "Для администратора дает возможность создать нового пользователя. Администратор должен заполнить все требуемые поля, указанные в примере.",
+                "operationId": "6da8a20df7b3e41929be6abac6e75525",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "Some email"
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "example": "Some password"
+                                            },
+                                            "password_confirmation": {
+                                                "type": "string",
+                                                "example": "Password confirmation"
+                                            },
+                                            "role": {
+                                                "type": "integer",
+                                                "example": 0
+                                            },
+                                            "status": {
+                                                "type": "integer",
+                                                "example": 0
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "New user successfully registered."
+                                        },
+                                        "user": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Some name"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "Some email"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "example": null
+                                                },
+                                                "role": {
+                                                    "type": "integer",
+                                                    "example": 0
+                                                },
+                                                "status": {
+                                                    "type": "integer",
+                                                    "example": 0
+                                                },
+                                                "full_name": {
+                                                    "type": "string",
+                                                    "example": "Some full name"
+                                                },
+                                                "last_login_date": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2025-11-01T01:00:00.000000Z"
+                                                },
+                                                "login_ip": {
+                                                    "type": "string",
+                                                    "example": "Some IP"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/users/{user}": {
+            "get": {
+                "tags": [
+                    "Пользователи"
+                ],
+                "summary": "Получить данные пользователя",
+                "description": "Для администратора возвращает любого пользователя по его идентификатору (id).",
+                "operationId": "06188816e296c47e37dca39a0d2b792f",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "id пользователя",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Some name"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "Some email"
+                                        },
+                                        "email_verified_at": {
+                                            "type": "string",
+                                            "example": null
+                                        },
+                                        "role": {
+                                            "type": "integer",
+                                            "example": 0
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 0
+                                        },
+                                        "full_name": {
+                                            "type": "string",
+                                            "example": "Some full name"
+                                        },
+                                        "last_login_date": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2025-11-01T01:00:00.000000Z"
+                                        },
+                                        "login_ip": {
+                                            "type": "string",
+                                            "example": "Some IP"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Пользователи"
+                ],
+                "summary": "Обновить пользователя",
+                "description": "Для администратора дает возможность редактировать любого пользователя по её идентификатору (id). Администратор должен заполнить все требуемые поля, указанные в примере.",
+                "operationId": "8e816a6d8424d9b58d8bb8957ed1b135",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "id пользователя",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name for edit"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "Some email for edit"
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "example": "Some password for edit"
+                                            },
+                                            "password_confirmation": {
+                                                "type": "string",
+                                                "example": "Password confirmation for edit"
+                                            },
+                                            "role": {
+                                                "type": "integer",
+                                                "example": 0
+                                            },
+                                            "status": {
+                                                "type": "integer",
+                                                "example": 0
+                                            },
+                                            "full_name": {
+                                                "type": "string",
+                                                "example": "Some full name for edit"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Some name"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "Some email"
+                                        },
+                                        "email_verified_at": {
+                                            "type": "string",
+                                            "example": null
+                                        },
+                                        "role": {
+                                            "type": "integer",
+                                            "example": 0
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 0
+                                        },
+                                        "full_name": {
+                                            "type": "string",
+                                            "example": "Some full name"
+                                        },
+                                        "last_login_date": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2025-11-01T01:00:00.000000Z"
+                                        },
+                                        "login_ip": {
+                                            "type": "string",
+                                            "example": "Some IP"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Пользователи"
+                ],
+                "summary": "Удалить пользователя",
+                "description": "Администратор может удалить любого пользователя по его идентификатору (id), зарегистрированного в системе.",
+                "operationId": "221fc819307dee2dcfbca8b22695acf4",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "id пользователя",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -1285,6 +1697,10 @@
         {
             "name": "Новости",
             "description": "Новости"
+        },
+        {
+            "name": "Пользователи",
+            "description": "Пользователи"
         }
     ]
 }
