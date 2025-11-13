@@ -2,8 +2,8 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Knowledge Core API",
-        "description": "Дата обновления: 10.11.2025",
-        "version": "1.0.1"
+        "description": "Дата обновления: 13.11.2025",
+        "version": "1.0.2"
     },
     "paths": {
         "/api/": {},
@@ -1657,6 +1657,76 @@
                                         "id": {
                                             "type": "integer",
                                             "example": 1
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/users/get-roles": {
+            "get": {
+                "tags": [
+                    "Пользователи"
+                ],
+                "summary": "Получить роли пользователей",
+                "description": "Для администратора возвращает список всех возможных ролей пользователей.",
+                "operationId": "d2038ec653a48b26300db97811f02b9c",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "roles": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/users/get-statuses": {
+            "get": {
+                "tags": [
+                    "Пользователи"
+                ],
+                "summary": "Получить статусы пользователей",
+                "description": "Для администратора возвращает список всех возможных статусов пользователей.",
+                "operationId": "eb02170b92750ace94dbf61249dafe64",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "statuses": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
                                         }
                                     },
                                     "type": "object"
