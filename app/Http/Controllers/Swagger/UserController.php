@@ -173,6 +173,42 @@ use App\Http\Controllers\Controller;
  *             @OA\Property(property="id", type="integer", example=1)
  *         )
  *     )
+ * ),
+ *
+ * @OA\Get(
+ *     path="/api/v1/users/get-roles",
+ *     summary="Получить роли пользователей",
+ *     tags={"Пользователи"},
+ *     security={{ "bearerAuth": {} }},
+ *     description="Для администратора возвращает список всех возможных ролей пользователей.",
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @OA\JsonContent(
+ *              @OA\Property(property="roles", type="array", @OA\Items(
+ *                  type="string"
+ *              ))
+ *         )
+ *     )
+ * ),
+ *
+ * @OA\Get(
+ *     path="/api/v1/users/get-statuses",
+ *     summary="Получить статусы пользователей",
+ *     tags={"Пользователи"},
+ *     security={{ "bearerAuth": {} }},
+ *     description="Для администратора возвращает список всех возможных статусов пользователей.",
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @OA\JsonContent(
+ *              @OA\Property(property="statuses", type="array", @OA\Items(
+ *                  type="string"
+ *              ))
+ *         )
+ *     )
  * )
  */
 class UserController extends Controller
