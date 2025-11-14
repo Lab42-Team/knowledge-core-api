@@ -2,8 +2,8 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Knowledge Core API",
-        "description": "Дата обновления: 13.11.2025",
-        "version": "1.0.2"
+        "description": "Дата обновления: 14.11.2025",
+        "version": "1.0.3"
     },
     "paths": {
         "/api/": {},
@@ -1260,6 +1260,321 @@
                 ]
             }
         },
+        "/api/v1/project": {
+            "get": {
+                "tags": [
+                    "Проекты"
+                ],
+                "summary": "Получить список всех проектов",
+                "description": "Для любого пользователя возвращает список всех проектов.",
+                "operationId": "96384b1d694abc0719374ead626a972c",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Some description"
+                                            },
+                                            "type": {
+                                                "type": "integer",
+                                                "example": 0
+                                            },
+                                            "status": {
+                                                "type": "integer",
+                                                "example": 0
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Проекты"
+                ],
+                "summary": "Создание нового проекта",
+                "description": "Для администратора дает возможность создать новый проект.",
+                "operationId": "0bc6a450dc53a3e327a1234e4c858667",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Some description"
+                                            },
+                                            "type": {
+                                                "type": "integer",
+                                                "example": 0
+                                            },
+                                            "status": {
+                                                "type": "integer",
+                                                "example": 0
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Some name"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Some description"
+                                        },
+                                        "type": {
+                                            "type": "integer",
+                                            "example": 0
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/project/{project}": {
+            "get": {
+                "tags": [
+                    "Проекты"
+                ],
+                "summary": "Получить единичный проект",
+                "description": "Для любого пользователя возвращает проект по его идентификатору (id).",
+                "operationId": "cf8e74c37c76fb2cf081274ec76eb23d",
+                "parameters": [
+                    {
+                        "name": "project",
+                        "in": "path",
+                        "description": "id проекта",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Some name"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Some description"
+                                        },
+                                        "type": {
+                                            "type": "integer",
+                                            "example": 0
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Проекты"
+                ],
+                "summary": "Обновить проект",
+                "description": "Для администратора дает возможность редактировать любой проект по его идентификатору (id).",
+                "operationId": "92d3480ec6e1b50732b6618a32a3b8e4",
+                "parameters": [
+                    {
+                        "name": "project",
+                        "in": "path",
+                        "description": "id проекта",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name for edit"
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Some description for edit"
+                                            },
+                                            "type": {
+                                                "type": "integer",
+                                                "example": 0
+                                            },
+                                            "status": {
+                                                "type": "integer",
+                                                "example": 1
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Some new name"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Some new description"
+                                        },
+                                        "type": {
+                                            "type": "integer",
+                                            "example": 0
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Проекты"
+                ],
+                "summary": "Удалить проект",
+                "description": "Для администратора дает возможность удалить любой проект по его идентификатору (id).",
+                "operationId": "b5ee0714f477a828119b59ec9ed46827",
+                "parameters": [
+                    {
+                        "name": "project",
+                        "in": "path",
+                        "description": "id проекта",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/v1/users": {
             "get": {
                 "tags": [
@@ -1767,6 +2082,10 @@
         {
             "name": "Новости",
             "description": "Новости"
+        },
+        {
+            "name": "Проекты",
+            "description": "Проекты"
         },
         {
             "name": "Пользователи",
