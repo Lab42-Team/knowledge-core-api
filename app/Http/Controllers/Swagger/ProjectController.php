@@ -1,0 +1,157 @@
+<?php
+
+namespace App\Http\Controllers\Swagger;
+
+use App\Http\Controllers\Controller;
+
+/**
+ * @OA\Get(
+ *     path="/api/v1/project",
+ *     summary="Получить список всех проектов",
+ *     tags={"Проекты"},
+ *     security={{ "bearerAuth": {} }},
+ *     description="Для любого пользователя возвращает список всех проектов.",
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @OA\JsonContent(type="array", @OA\Items(
+ *             @OA\Property(property="id", type="integer", example=1),
+ *             @OA\Property(property="name", type="string", example="Some name"),
+ *             @OA\Property(property="description", type="string", example="Some description"),
+ *             @OA\Property(property="type", type="integer", example=0),
+ *             @OA\Property(property="status", type="integer", example=0)
+ *         ))
+ *     )
+ * ),
+ *
+ * @OA\Post(
+ *     path="/api/v1/project",
+ *     summary="Создание нового проекта",
+ *     tags={"Проекты"},
+ *     security={{ "bearerAuth": {} }},
+ *     description="Для администратора дает возможность создать новый проект.",
+ *
+ *     @OA\RequestBody(
+ *         @OA\JsonContent(
+ *             allOf={
+ *                 @OA\Schema(
+ *                     @OA\Property(property="name", type="string", example="Some name"),
+ *                     @OA\Property(property="description", type="string", example="Some description"),
+ *                     @OA\Property(property="type", type="integer", example=0),
+ *                     @OA\Property(property="status", type="integer", example=0)
+ *                 )
+ *             }
+ *         )
+ *     ),
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="id", type="integer", example=1),
+ *             @OA\Property(property="name", type="string", example="Some name"),
+ *             @OA\Property(property="description", type="string", example="Some description"),
+ *             @OA\Property(property="type", type="integer", example=0),
+ *             @OA\Property(property="status", type="integer", example=0)
+ *         )
+ *     )
+ * ),
+ *
+ * @OA\Get(
+ *     path="/api/v1/project/{project}",
+ *     summary="Получить единичный проект",
+ *     tags={"Проекты"},
+ *     security={{ "bearerAuth": {} }},
+ *     description="Для любого пользователя возвращает проект по его идентификатору (id).",
+ *
+ *     @OA\Parameter(
+ *         description="id проекта",
+ *         in="path",
+ *         name="project",
+ *         required=true,
+ *         example=1
+ *     ),
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="id", type="integer", example=1),
+ *             @OA\Property(property="name", type="string", example="Some name"),
+ *             @OA\Property(property="description", type="string", example="Some description"),
+ *             @OA\Property(property="type", type="integer", example=0),
+ *             @OA\Property(property="status", type="integer", example=0)
+ *         )
+ *     )
+ * ),
+ *
+ * @OA\Put(
+ *     path="/api/v1/project/{project}",
+ *     summary="Обновить проект",
+ *     tags={"Проекты"},
+ *     security={{ "bearerAuth": {} }},
+ *     description="Для администратора дает возможность редактировать любой проект по его идентификатору (id).",
+ *
+ *     @OA\Parameter(
+ *         description="id проекта",
+ *         in="path",
+ *         name="project",
+ *         required=true,
+ *         example=1
+ *     ),
+ *
+ *     @OA\RequestBody(
+ *         @OA\JsonContent(
+ *             allOf={
+ *                 @OA\Schema(
+ *                     @OA\Property(property="name", type="string", example="Some name for edit"),
+ *                     @OA\Property(property="description", type="string", example="Some description for edit"),
+ *                     @OA\Property(property="type", type="integer", example=0),
+ *                     @OA\Property(property="status", type="integer", example=1)
+ *                 )
+ *             }
+ *         )
+ *     ),
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="id", type="integer", example=1),
+ *             @OA\Property(property="name", type="string", example="Some new name"),
+ *             @OA\Property(property="description", type="string", example="Some new description"),
+ *             @OA\Property(property="type", type="integer", example=0),
+ *             @OA\Property(property="status", type="integer", example=1)
+ *         )
+ *     )
+ * ),
+ *
+ * @OA\Delete(
+ *     path="/api/v1/project/{project}",
+ *     summary="Удалить проект",
+ *     tags={"Проекты"},
+ *     security={{ "bearerAuth": {} }},
+ *     description="Для администратора дает возможность удалить любой проект по его идентификатору (id).",
+ *
+ *     @OA\Parameter(
+ *         description="id проекта",
+ *         in="path",
+ *         name="project",
+ *         required=true,
+ *         example=1
+ *     ),
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="id", type="integer", example=1)
+ *         )
+ *     )
+ * )
+ */
+class ProjectController extends Controller
+{
+    //
+}
