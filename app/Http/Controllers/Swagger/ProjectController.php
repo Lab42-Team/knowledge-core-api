@@ -149,6 +149,42 @@ use App\Http\Controllers\Controller;
  *             @OA\Property(property="id", type="integer", example=1)
  *         )
  *     )
+ * ),
+ *
+ * * @OA\Get(
+ *     path="/api/v1/project/get-types",
+ *     summary="Получить типы проектов",
+ *     tags={"Проекты"},
+ *     security={{ "bearerAuth": {} }},
+ *     description="Для администратора возвращает список всех возможных типов проектов.",
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @OA\JsonContent(
+ *              @OA\Property(property="types", type="array", @OA\Items(
+ *                  type="string"
+ *              ))
+ *         )
+ *     )
+ * ),
+ *
+ * @OA\Get(
+ *     path="/api/v1/project/get-statuses",
+ *     summary="Получить статусы проектов",
+ *     tags={"Проекты"},
+ *     security={{ "bearerAuth": {} }},
+ *     description="Для администратора возвращает список всех возможных статусов проектов.",
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @OA\JsonContent(
+ *              @OA\Property(property="statuses", type="array", @OA\Items(
+ *                  type="string"
+ *              ))
+ *         )
+ *     )
  * )
  */
 class ProjectController extends Controller
