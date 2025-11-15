@@ -2,8 +2,8 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Knowledge Core API",
-        "description": "Дата обновления: 14.11.2025",
-        "version": "1.0.3"
+        "description": "Дата обновления: 15.11.2025",
+        "version": "1.0.4"
     },
     "paths": {
         "/api/": {},
@@ -1560,6 +1560,76 @@
                                         "id": {
                                             "type": "integer",
                                             "example": 1
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/project/get-types": {
+            "get": {
+                "tags": [
+                    "Проекты"
+                ],
+                "summary": "Получить типы проектов",
+                "description": "Для администратора возвращает список всех возможных типов проектов.",
+                "operationId": "e6d329e9e7f225101b739535b87d86d8",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "types": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/project/get-statuses": {
+            "get": {
+                "tags": [
+                    "Проекты"
+                ],
+                "summary": "Получить статусы проектов",
+                "description": "Для администратора возвращает список всех возможных статусов проектов.",
+                "operationId": "6b00d78ef2c7fd420063b21226111eba",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "statuses": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
                                         }
                                     },
                                     "type": "object"
