@@ -2,8 +2,8 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Knowledge Core API",
-        "description": "Дата обновления: 15.11.2025",
-        "version": "1.0.4"
+        "description": "Дата обновления: 17.11.2025",
+        "version": "1.0.5"
     },
     "paths": {
         "/api/": {},
@@ -1633,6 +1633,130 @@
                                         }
                                     },
                                     "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/project/show-users-project/{project}": {
+            "get": {
+                "tags": [
+                    "Проекты"
+                ],
+                "summary": "Получить всех пользователей определенного проекта",
+                "description": "Для администратора возвращает список всех пользователей, которые входят в данный проект. Необходимо передать идентификатор (id) проекта.",
+                "operationId": "0989b0e8f880f07c35a6c43f4f763657",
+                "parameters": [
+                    {
+                        "name": "project",
+                        "in": "path",
+                        "description": "id проекта",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Some name"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "Some email"
+                                            },
+                                            "email_verified_at": {
+                                                "type": "string",
+                                                "example": null
+                                            },
+                                            "role": {
+                                                "type": "integer",
+                                                "example": 0
+                                            },
+                                            "status": {
+                                                "type": "integer",
+                                                "example": 0
+                                            },
+                                            "full_name": {
+                                                "type": "string",
+                                                "example": "Some full name"
+                                            },
+                                            "last_login_date": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2025-11-01T01:00:00.000000Z"
+                                            },
+                                            "login_ip": {
+                                                "type": "string",
+                                                "example": "Some IP"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/project/{project}/user/{userId}": {
+            "delete": {
+                "tags": [
+                    "Проекты"
+                ],
+                "summary": "Удалить пользователя из определенного проекта",
+                "description": "Для администратора дает возможность удалить любого пользователя, который входит в данный проект. Необходимо передать идентификаторы (id) проекта и пользователя.",
+                "operationId": "152687657552d2f453e395e270c6ac52",
+                "parameters": [
+                    {
+                        "name": "project",
+                        "in": "path",
+                        "description": "id проекта",
+                        "required": true,
+                        "example": 1
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "id пользователя",
+                        "required": true,
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
