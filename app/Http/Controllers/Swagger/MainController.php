@@ -7,8 +7,8 @@ use Illuminate\Routing\Controller;
 /**
  * @OA\Info(
  *     title="Knowledge Core API",
- *     version="1.0.4",
- *     description="Дата обновления: 15.11.2025"
+ *     version="1.0.5",
+ *     description="Дата обновления: 17.11.2025"
  * ),
  *
  * @OA\PathItem(
